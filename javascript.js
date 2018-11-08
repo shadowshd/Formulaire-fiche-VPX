@@ -1854,6 +1854,10 @@ $("#refreshcodesupport").on("click", function() {
   $("#codesupportcontenu").empty().val(codesupportfiche);
 });
 
+$("#support").on("click", function() {
+    window.open("f116-support-des-tables-vpx", "_blank");
+});
+
 $("form").on("reset", function() {
   setTimeout(function() {
     importtoastr = true;

@@ -36,7 +36,7 @@ var tablecolspan;
 var tablelinks;
 var tablewidth;
 var teampptable = "";
-var titretable;
+var titretable = true;
 var urlipdb;
 var urlipdb2 = '';
 var urlsujet;

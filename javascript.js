@@ -27,18 +27,16 @@ var infosfiche;
 var presentationtable;
 var tablelinks;
 var zoneinfo;
-var infosfiche;
 var pseudofiche0 = "";
 var pseudofiche1 = "";
 var pseudofiche2 = "";
 var pseudofiche3 = "";
 var tablecolspan;
-var tablelinks;
 var tablewidth;
 var teampptable = "";
 var titretable = false;
 var urlipdb;
-var urlipdb2 = '';
+var urlipdb2 = "";
 var urlsujet;
 var urlmediapack;
 var urltable;
@@ -48,7 +46,6 @@ var urlbackground;
 var username = _userdata["username"];
 var versionnew;
 var versionold;
-var zoneinfo;
 
 // Notifications.
 toastr.options = {
@@ -67,7 +64,7 @@ toastr.options = {
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
-}
+};
 
 // Infobulles.
 $(document).tooltip({
@@ -116,13 +113,13 @@ $("#mpafairetitre, #tableteampptitre, #ajoutmptitre").prop("title", "<i>Option d
 
 // Fonction de mise en capitales (titre et auteurs).
 String.prototype.toCapital = function () {
-  return this.toLowerCase().split(' ').map(function (i) {
+  return this.toLowerCase().split(" ").map(function (i) {
     if (!i.charAt(0).match("[a-zA-Z]+")) {
       return i.charAt(0) + i.substr(1,1).toUpperCase() + i.substr(2);
     } else {
       return i.charAt(0).toUpperCase() + i.substr(1);
     }
-  }).join(' ');
+  }).join(" ");
 };
 
 /* Définition du sous-forum dans lequel sera postée la fiche.
@@ -330,10 +327,10 @@ $("#titre").change(function () {
     }
     var trimurl = $(this).val().replace("Re: ", "").trim().toCapital();
     trimurl = trimurl.replace(/ Le$/, " LE").replace(" Le [", " LE [").replace("Acdc", "AC/DC").replace("Ac/dc", "AC/DC").replace(" Ii", " II").replace(" Iii", " III").replace("Csi", "CSI");
-    var matches = trimurl.split('[')
-    .filter(function(v){ return v.indexOf(']') > -1})
-    .map( function(value) { 
-      return value.split(']')[0]
+    var matches = trimurl.split("[")
+    .filter(function(v){ return v.indexOf("]") > -1})
+    .map(function(value) { 
+      return value.split("]")[0]
     })
     for(var i=0; i < matches.length; i++) {
      trimurl = trimurl.replace(matches[i], matches[i].toString().toUpperCase());
@@ -509,7 +506,7 @@ $("#version").change(function () {
 // Vérification image miniwheel.
 $("#urlminiwheel").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "png") {
     $("#urlminiwheel").val("");
     $("#wheelpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
@@ -592,7 +589,7 @@ $("#urlminiwheel2").on({
 // Vérification vignette playfield.
 $("#urlvignplayfield").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "jpg") {
     $("#urlvignplayfield").val("");
     $("#playfieldpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
@@ -675,7 +672,7 @@ $("#urlvignplayfield2").on({
 // Vérification image playfield.
 $("#urlplayfield").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "jpg") {
     $("#urlplayfield").val("");
     $("#playfieldpreview").unwrap("a");
@@ -760,7 +757,7 @@ $("#urlplayfield2").on({
 // Vérification vignette backglass.
 $("#urlvignbackglass").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "jpg") {
     $("#urlvignbackglass").val("");
     $("#backglasspreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
@@ -843,7 +840,7 @@ $("#urlvignbackglass2").on({
 // Vérification image backglass.
 $("#urlbackglass").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "jpg") {
     $("#urlbackglass").val("");
     $("#backglasspreview").unwrap("a");
@@ -1149,7 +1146,7 @@ $("#urltable").change(function () {
 
 // Case à cocher dB2S fourni avec la table.
 $("#db2stable").change(function () {
-  if ($(this).is(':checked')) {
+  if ($(this).is(":checked")) {
     disabledb2s();
     if (importtoastr === false) {
       toastr.info("Option sélectionnée.", "dB2S fourni :");
@@ -1249,7 +1246,7 @@ $("#urlmediapack").change(function () {
 // Vérification de l'image background de la zone Changelog.
 $("#urlbackground").change(function () {
   var trimurl = $(this).val().trim();
-  var ext = trimurl.split('.').pop().toLowerCase();
+  var ext = trimurl.split(".").pop().toLowerCase();
   if (trimurl !== "" && ext !== "png") {
     $("#urlbackground").val("");
     $("#backimg").prop("style", "width:80%;margin:0 auto;");
@@ -1464,10 +1461,10 @@ $("#loadfiche").change(function () {
       var titre = $(".postdetails", pagehtml).text();
       if (titre !== "") {
         var sujet = titre.substring(titre.lastIndexOf("Sujet: ")+7,titre.lastIndexOf(String.fromCharCode(160))).slice(0,-2);
-        var matches = sujet.split('[')
-        .filter(function(v){ return v.indexOf(']') > -1})
-        .map( function(value) { 
-          return value.split(']')[0]
+        var matches = sujet.split("[")
+        .filter(function(v){ return v.indexOf("]") > -1})
+        .map(function(value) { 
+          return value.split("]")[0]
         })
         for(var i=0; i < matches.length; i++) {
         sujet = sujet.replace(matches[i], matches[i].toString().toUpperCase());

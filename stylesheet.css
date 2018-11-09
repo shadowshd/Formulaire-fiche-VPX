@@ -200,6 +200,7 @@ select {
   border-radius:5px;
   transition:border-color 0.2s linear;
   background:#111111;
+  cursor:pointer;
 }
 
 select:hover {

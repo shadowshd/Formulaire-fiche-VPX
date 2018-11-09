@@ -1473,9 +1473,11 @@ $("#loadfiche").change(function () {
         if (sujet.indexOf("[MÉDIA PACK À FAIRE]") !== -1) {
           $("#mpafaire").prop("checked", true);
           $("#ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);
+          $("#ajoutmptitre").prop("title", "Option désactivée car l'option <i>[MÉDIA PACK À FAIRE]</i> est activée.");
         } else if (sujet.indexOf("[AJOUT MÉDIA PACK]") !== -1) {
           $("#mpafaire").prop("disabled", true).fadeTo("fast", 0.33);
           $("#ajoutmp").prop("checked", true);
+          $("#mpafairetitre").prop("title", "Option désactivée car l'option <i>[AJOUT MÉDIA PACK]</i> est activée.");
         }
       } else {
         resetVarBlur($("#titre"));

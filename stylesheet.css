@@ -11,6 +11,10 @@
   text-decoration: none;
 }
 
+a {
+  cursor:pointer;
+}
+
 .ui-tooltip {
   font-size:11pt;
   font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
@@ -142,6 +146,9 @@ input, input.button {
   background:#111111;
 }
 
+input:disabled {
+  cursor:not-allowed;
+}
 
 input[type=number] { 
   color:#aaa;
@@ -198,6 +205,10 @@ select {
 select:hover {
   border:2px solid #C4C4FF;
   background:#222222;
+}
+
+select:disabled {
+  cursor:not-allowed;
 }
 
 input.checkbox {

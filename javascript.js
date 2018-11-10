@@ -1547,11 +1547,7 @@ function resetChamps() {
 
 $("#loadfiche").change(function () {
   var trimurl = $(this).val().trim();
-  if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
-    $("#loadfiche").val("");
-    toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
-    return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  if (trimurl.match(/http/g).length > 1) {
     $("#loadfiche").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1560,6 +1556,10 @@ $("#loadfiche").change(function () {
     } else {
       toastr.error(toastrmsg, "URL fiche existante :", {timeOut: 10000});
     }
+    return;
+  } else if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
+    $("#loadfiche").val("");
+    toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
     return;
   }
   $("#loadfiche").val(trimurl);

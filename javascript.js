@@ -1548,9 +1548,19 @@ function resetChamps() {
 $("#loadfiche").change(function () {
   var trimurl = $(this).val().trim();
   if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
-    $("#loadfiche").val("").change();
+    $("#loadfiche").val("");
     toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
-    return false;
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#loadfiche").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL fiche existante :");
+      $("#loadfiche").focus();
+    } else {
+      toastr.error(toastrmsg, "URL fiche existante :", {timeOut: 10000});
+    }
+    return;
   }
   $("#loadfiche").val(trimurl);
   $.get(trimurl, function (pagehtml) {

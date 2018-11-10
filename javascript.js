@@ -490,7 +490,7 @@ $("#annee").change(function () {
 // Récupération numéro de version pour comparaison en cas d'importation d'une fiche existante.
 $("#version").change(function () {
   var trimurl = $(this).val().trim().toLowerCase();
-  trimurl = trimurl.replace("wip", "WIP");
+  trimurl = trimurl.replace("wip", "WIP").replace(",", ".");
   if (trimurl !== "" && trimurl !== "sans") {
     $("#version").val(trimurl);
     versionold = trimurl;

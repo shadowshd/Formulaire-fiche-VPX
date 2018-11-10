@@ -528,7 +528,7 @@ $("#urlminiwheel").change(function () {
     }
     $("#wheelpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlminiwheel").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -622,7 +622,7 @@ $("#urlvignplayfield").change(function () {
     $("#urlvignplayfield").val("");
     $("#playfieldpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlvignplayfield").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -715,7 +715,7 @@ $("#urlplayfield").change(function () {
     $("#urlplayfield").val("");
     $("#playfieldpreview").unwrap("a");
     return;
-   } else if (trimurl.match(/http/g).length > 1) {
+   } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlplayfield").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -810,7 +810,7 @@ $("#urlvignbackglass").change(function () {
       toastr.error(toastrmsg, "Vignette backglass :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlvignbackglass").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -903,7 +903,7 @@ $("#urlbackglass").change(function () {
     $("#urlbackglass").val("");
     $("#backglasspreview").unwrap("a");
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlbackglass").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1011,7 +1011,7 @@ $("#urlipdb").change(function () {
       toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlipdb").val("");
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
@@ -1052,7 +1052,7 @@ $("#urlsujet").change(function () {
       toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlsujet").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1105,7 +1105,7 @@ $("#urltable").change(function () {
     trimurl = trimurl.replace("http://", "https://");
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien table :");
   }
-  if (trimurl.match(/http/g).length > 1) {
+  if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urltable").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1244,7 +1244,7 @@ $("#urldb2s").change(function () {
     trimurl = trimurl.replace("http://", "https://");
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien dB2S :");
   }
-  if (trimurl.match(/http/g).length > 1) {
+  if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urldb2s").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1319,7 +1319,7 @@ $("#urlmediapack").change(function () {
     } else {
       toastr.error(toastrmsg, "URL média pack :", {timeOut: 10000});
     }
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlmediapack").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1367,7 +1367,7 @@ $("#urlbackground").change(function () {
     $("#urlbackground").val("");
     $("#backimg").prop("style", "width:80%;margin:0 auto;");
     return;
-  } else if (trimurl.match(/http/g).length > 1) {
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlbackground").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
@@ -1547,7 +1547,7 @@ function resetChamps() {
 
 $("#loadfiche").change(function () {
   var trimurl = $(this).val().trim();
-  if (trimurl.match(/http/g).length > 1) {
+  if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#loadfiche").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {

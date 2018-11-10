@@ -517,18 +517,28 @@ $("#urlminiwheel").change(function () {
       toastr.error(toastrmsg, "Mini-wheel :", {timeOut: 10000});
     }
     return;
-} else if (trimurl !== "" && ext === "png" && trimurl.indexOf("/19/65/43/35/") === -1) {
-  $("#urlminiwheel").val("");
-  var toastrmsg = "L'image doit être hébergée sur le compte Servimg Pincab Passion !";
-  if (importtoastr === false) {
-    toastr.error(toastrmsg, "Image mini-wheel :");
-    $("#urlminiwheel").focus();
-  } else {
-    toastr.error(toastrmsg, "Image mini-wheel :", {timeOut: 10000});
+  } else if (trimurl !== "" && ext === "png" && trimurl.indexOf("/19/65/43/35/") === -1) {
+    $("#urlminiwheel").val("");
+    var toastrmsg = "L'image doit être hébergée sur le compte Servimg Pincab Passion !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Image mini-wheel :");
+      $("#urlminiwheel").focus();
+    } else {
+      toastr.error(toastrmsg, "Image mini-wheel :", {timeOut: 10000});
+    }
+    $("#wheelpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlminiwheel").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Image mini-wheel :");
+      $("#urminiwheel").focus();
+    } else {
+      toastr.error(toastrmsg, "Image mini-wheel :", {timeOut: 10000});
+    }
+    return;
   }
-  $("#wheelpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
-  return;
-}
   $("#urlminiwheel2").prop("src", "");
   $("#urlminiwheel2").prop("src", trimurl);
   $("#urlminiwheel").val(trimurl);
@@ -611,6 +621,16 @@ $("#urlvignplayfield").change(function () {
     }
     $("#urlvignplayfield").val("");
     $("#playfieldpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlvignplayfield").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Vignette playfield :");
+      $("#urlvignplayfield").focus();
+    } else {
+      toastr.error(toastrmsg, "Vignette playfield :", {timeOut: 10000});
+    }
     return;
   }
   $("#urlvignplayfield2").prop("src", "");
@@ -695,6 +715,16 @@ $("#urlplayfield").change(function () {
     $("#urlplayfield").val("");
     $("#playfieldpreview").unwrap("a");
     return;
+   } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlplayfield").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Image playfield :");
+      $("#urlplayfield").focus();
+    } else {
+      toastr.error(toastrmsg, "Image playfield :", {timeOut: 10000});
+    }
+    return;
   }
   $("#urlplayfield").val(trimurl);
   if ($("#urlplayfield").val() !== "") {
@@ -773,6 +803,16 @@ $("#urlvignbackglass").change(function () {
     $("#urlvignbackglass").val("");
     $("#backglasspreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");
     var toastrmsg = "L'image doit être hébergée sur le compte Servimg Pincab Passion !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Vignette backglass :");
+      $("#urlvignbackglass").focus();
+    } else {
+      toastr.error(toastrmsg, "Vignette backglass :", {timeOut: 10000});
+    }
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlvignbackglass").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "Vignette backglass :");
       $("#urlvignbackglass").focus();
@@ -863,6 +903,16 @@ $("#urlbackglass").change(function () {
     $("#urlbackglass").val("");
     $("#backglasspreview").unwrap("a");
     return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlbackglass").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Image backglass :");
+      $("#urlbackglass").focus();
+    } else {
+      toastr.error(toastrmsg, "Image backglass :", {timeOut: 10000});
+    }
+    return;
   }
   $("#urlbackglass").val(trimurl);
   if ($("urlbackglass").val() !== "") {
@@ -948,6 +998,7 @@ $("#urlipdb").change(function () {
     } else {
       toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
     }
+    return;
   } else if (trimurl.match(/[0-9]/g) == null && trimurl.indexOf("https://www.ipdb.org/search.pl?any=acdc") !== 0) {
     $("#urlipdb").val("");
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
@@ -959,20 +1010,23 @@ $("#urlipdb").change(function () {
     } else {
       toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
     }
-  } else if (trimurl.match(/https/g).length > 1) {
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
     $("#urlipdb").val("");
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    var toastrmsg = "L'URL saisie contient " + trimurl.match(/https/g).length + " fois <i>https</i> !";
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "Fiche IPDB :");
       $("#urlipdb").focus();
     } else {
       toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
     }
+    return;
   } else if (trimurl === "") {
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
+    return;
   } else {
     $("#urlipdb").val(trimurl);
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png").wrap("<a href='" + $("#urlipdb").val() + "' target='_blank'>");
@@ -997,8 +1051,20 @@ $("#urlsujet").change(function () {
     } else {
       toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeOut: 10000});
     }
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlsujet").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL sujet [SUPPORT] :");
+      $("#urlsujet").focus();
+    } else {
+      toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeOut: 10000});
+    }
+    return;
   } else if (trimurl === "") {
     $("#urlsujetpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
+    return;
   } else {
     $("#urlsujetpreview").prop("src", "https://i.servimg.com/u/f30/19/65/43/35/suppor10.png").wrap("<a href='" + trimurl + "' target='_blank'>");
     if (importtoastr === false) {
@@ -1039,7 +1105,17 @@ $("#urltable").change(function () {
     trimurl = trimurl.replace("http://", "https://");
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien table :");
   }
-  if (trimurl.indexOf("https://mega.nz/") === 0) {
+  if (trimurl.match(/http/g).length > 1) {
+    $("#urltable").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL table :");
+      $("#urltable").focus();
+    } else {
+      toastr.error(toastrmsg, "URL table :", {timeOut: 10000});
+    }
+    return;
+  } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     $("#urltable").val(trimurl);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1055,9 +1131,8 @@ $("#urltable").change(function () {
     if (importtoastr === false) {
       toastr.info("Pincab Passion.", "URL table :");
     }
-  };
-
-  if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
+    return;
+  } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1073,9 +1148,8 @@ $("#urltable").change(function () {
     if (importtoastr === false) {
       toastr.info("VPForums.", "URL table :");
     }
-  };
-
-  if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
+    return;
+  } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1091,9 +1165,8 @@ $("#urltable").change(function () {
     if (importtoastr === false) {
       toastr.info("VPUniverse.", "URL table :");
     }
-  };
-
-  if (trimurl.indexOf("https://vpinball.com/") === 0) {
+    return;
+  } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1109,9 +1182,8 @@ $("#urltable").change(function () {
     if (importtoastr === false) {
       toastr.info("VPinball.", "URL table :");
     }
-  };
-
-  if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
+    return;
+  } else if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
     $("#urltable").val(trimurl.split("#")[0]);
     //disabledb2stable(); fonctions de désactivation automatique des champs dB2S désactivées suite certains dB2S non disponibles chez MBP.
     //disabledb2s();
@@ -1121,14 +1193,14 @@ $("#urltable").change(function () {
     if (importtoastr === false) {
       toastr.info("MonsterBashPincab.", "URL table :");
     }
-  };
-
-  if (trimurl === "") {
+    return;
+  } else if (trimurl === "") {
     enabledb2stable();
     enabledb2s();
     $("#urltable").val("");
     tablebutton = "";
     $("#urltablepreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
+    return;
   } else if (trimurl !== "" && urltableok !== true) {
     $("#urltable").val("");
     tablebutton = "";
@@ -1172,13 +1244,24 @@ $("#urldb2s").change(function () {
     trimurl = trimurl.replace("http://", "https://");
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien dB2S :");
   }
-  if (trimurl.indexOf("https://mega.nz/") === 0) {
+  if (trimurl.match(/http/g).length > 1) {
+    $("#urldb2s").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL dB2S :");
+      $("#urldb2s").focus();
+    } else {
+      toastr.error(toastrmsg, "URL dB2S :", {timeOut: 10000});
+    }
+    return;
+  } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     $("#urldb2s").val(trimurl);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/db2spp10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
     if (importtoastr === false) {
       toastr.info("Pincab Passion.", "URL dB2S :");
     }
+    return;
   } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/b2svpf11.png";
@@ -1186,6 +1269,7 @@ $("#urldb2s").change(function () {
     if (importtoastr === false) {
       toastr.info("VPForums.", "URL dB2S :");
     }
+    return;
   } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton ="https://i.servimg.com/u/f58/19/65/43/35/b2svpu10.png";
@@ -1193,6 +1277,7 @@ $("#urldb2s").change(function () {
     if (importtoastr === false) {
       toastr.info("VPUniverse.", "URL dB2S :");
     }
+    return;
   } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/b2svpb10.png";
@@ -1200,10 +1285,12 @@ $("#urldb2s").change(function () {
     if (importtoastr === false) {
       toastr.info("VPinball.", "URL dB2S :");
     }
+    return;
   } else if (trimurl === "") {
     $("#urldb2s").val("");
     backglassbutton = "";
     $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
+    return;
   } else {
     $("#urldb2s").val("");
     backglassbutton = "";
@@ -1232,9 +1319,20 @@ $("#urlmediapack").change(function () {
     } else {
       toastr.error(toastrmsg, "URL média pack :", {timeOut: 10000});
     }
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlmediapack").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL média pack :");
+      $("#urlmediapack").focus();
+    } else {
+      toastr.error(toastrmsg, "URL média pack :", {timeOut: 10000});
+    }
+    return;
   } else if (trimurl === "") {
     $("#urlmediapack").val("");
     $("#urlmediapackpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/mpsoon10.png").unwrap("a");
+    return;
   } else {
     $("#urlmediapackpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/medpac11.png").wrap("<a href='" + $("#urlmediapack").val() + "' target='_blank'>");
     if (importtoastr === false) {
@@ -1268,6 +1366,16 @@ $("#urlbackground").change(function () {
     }
     $("#urlbackground").val("");
     $("#backimg").prop("style", "width:80%;margin:0 auto;");
+    return;
+  } else if (trimurl.match(/http/g).length > 1) {
+    $("#urlbackground").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "Image background :");
+      $("#urbackground").focus();
+    } else {
+      toastr.error(toastrmsg, "Image background :", {timeOut: 10000});
+    }
     return;
   }
   $("#urlbackground").val(trimurl);

@@ -373,7 +373,7 @@ $("#ajoutmp").change(function() {
   if ($(this).prop("checked")) {
     importtoastr = true;
     $("#titre").val($("#titre").val().replace(" [AJOUT MÉDIA PACK]", "").replace("[AJOUT MÉDIA PACK]", "")).change();
-    importtoastr = false;
+    importtoastr = false; 
     $("#titre").val($("#titre").val() + " [AJOUT MÉDIA PACK]").change();
     $("#mpafaire").prop("disabled", true).fadeTo("fast", 0.33);
     $("#mpafairetitre").prop("title", "<i>Option désactivée car l'option </i>[AJOUT MÉDIA PACK]<i> est activée.</i>");
@@ -427,7 +427,7 @@ $("#fabricant").change(function () {
 // Vérification Auteur1 et Auteur2.
 function formatenom (nom) {
   nom = nom.split("/").map(function (name) {
-    name = name.toCapital();
+    name = name.trim().toCapital();
     name = name.replace("Team Pp", "Team PP").replace("Jpsalas", "JPSalas").replace("Jp Salas", "JPSalas").replace("32assassin", "32Assassin").replace("Hanibals", "Hanibal");
     name = name.replace("Freneticamnesic", "FreneticAmnesic").replace("Jpj", "JPJ").replace("Clarkkent", "ClarkKent");
     name = name.replace("Icpjuggla", "ICPjuggla").replace("Nfozzy", "nFozzy").replace("Borgdog", "BorgDog").replace("Djrobx", "DJRobX");
@@ -443,7 +443,6 @@ $("#auteur1").change(function () {
     trimurl = trimurl.toString().replace(/,/g, "/"); // remplace toute virgule par un slash avant appel à la fonction formatenom().
     trimurl = formatenom(trimurl);
     trimurl = trimurl.toString().replace(/,/g, "/"); // et après appel à la fonction.
-    trimurl = trimurl.replace(" / ", "/");
     $("#auteur1").val(trimurl);
     if (importtoastr === false) {
       toastr.info("<i>" + trimurl + "</i>.", "Auteur ligne 1 :");
@@ -457,7 +456,6 @@ $("#auteur2").change(function () {
     trimurl = trimurl.toString().replace(/,/g, "/");
     trimurl = formatenom(trimurl);
     trimurl = trimurl.toString().replace(/,/g, "/");
-    trimurl = trimurl.replace(" / ", "/");
     $("#auteur2").val(trimurl);
     if (importtoastr === false) {
       toastr.info("<i>" + trimurl + "</i>.", "Auteur ligne 2 :");
@@ -490,7 +488,7 @@ $("#annee").change(function () {
 // Récupération numéro de version pour comparaison en cas d'importation d'une fiche existante.
 $("#version").change(function () {
   var trimurl = $(this).val().trim().toLowerCase();
-  trimurl = trimurl.replace("wip", "WIP").replace(",", ".");
+  trimurl = trimurl.replace("wip", "WIP").replace(/,/g, ".");
   if (trimurl !== "" && trimurl !== "sans") {
     $("#version").val(trimurl);
     versionold = trimurl;

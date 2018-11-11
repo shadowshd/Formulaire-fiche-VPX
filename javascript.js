@@ -1022,17 +1022,17 @@ $("#urlipdb").change(function () {
         toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
       }
       return;
+    } else {
+      $("#urlipdb").val(trimurl);
+      $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png").wrap("<a href='" + $("#urlipdb").val() + "' target='_blank'>");
+      urlipdb2 = "<a id='ficheurlipdb' href='" + $("#urlipdb").val() + "' target='_blank'><img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png' /></a>";
+      if (importtoastr === false) {
+        toastr.info("URL ajoutée.", "Fiche IPDB");
+      }
     }
   } else if (trimurl === "") {
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-  } else {
-    $("#urlipdb").val(trimurl);
-    $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png").wrap("<a href='" + $("#urlipdb").val() + "' target='_blank'>");
-    urlipdb2 = "<a id='ficheurlipdb' href='" + $("#urlipdb").val() + "' target='_blank'><img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png' /></a>";
-    if (importtoastr === false) {
-      toastr.info("URL ajoutée.", "Fiche IPDB");
-    }
   }
 });
 

@@ -1,0 +1,537 @@
+<!--
+  Formulaire de création de fiche de table VPX v3.0.
+  (c) Shadow_shd & www.pincabpassion.net Décembre 2017 / Novembre 2018.
+-->
+<meta charset = "utf-8">
+<title>~ PP - Création fiche VPX ~</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<link rel="stylesheet" href="https://shadowshd.github.io/Formulaire-fiche-VPX/stylesheet.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">/</script>
+<script>
+/* Accès réservé aux :
+  Administrateurs :
+  - Bip-Bip-72 (id = 1)
+  - Peskopat (id = 680)
+  - Shadow_SHD (id = 1621)
+  Modérateurs :
+  - Leevuth (id = 565)
+  - Razorbaxx (id = 1449)
+  - Nicofab18 (id = 2130)
+  - Mariopourlavie (id = 3758)
+  - Aetios (id = 3899)
+  Membres :
+  - PincabPassion (id = 4429)
+  - Bluetooth (id = 4426)
+*/
+  if ($.inArray(_userdata["user_id"], [1, 680, 1621, 565, 1449, 2130, 3758, 3899, 4429, 4426]) == -1) {
+    $("#main_body").css("display", "none");
+    alert("Cette page n'est accessible qu'aux créateurs de fiches de tables VPX !\n\nVous allez être redirigé vers la page d'accueil ;)");
+    window.location.href = "http://www.pincabpassion.net/";
+  };
+</script>
+<body id="main_body">
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<p style="text-align:center;font-size:200%;">~ CRÉATION FICHE TABLE VPX ~</p>
+<p style="margin-top:-30px;color:#999999;text-align:center;font-size:75%;">www.pincabpassion.net</p>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<label class="description" for="uploadimg">Upload des images mini-wheels et Tables backgrounds :</label>
+<br />
+<div style="display:flex;margin:0 auto;width:80%;height:250px;">
+  <div style="margin-right:10px;width:50%;"
+    title="<b>IMPORTANT:</b> mettre redimensionnement sur NON et sélectionner :<br />
+    - Pour les mini-wheels la catégorie 'Tables_Miniwheels',<br />- Pour les backgrounds la catégorie 'Tables_Backgrounds',<br />
+    - Pour les vignettes playfields la catégorie 'Tables_Playfields_Vignettes',<br />- Pour les images playfields la catégorie 'Tables_Playfields',<br />
+    - Pour les vignettes backglasses la catégorie 'Tables_Backglasses_Vignettes',<br />- Pour les images backglasses la catégorie 'Tables_Backglasses'.<br /><br />
+    - Les images mini-wheels et backgrounds doivent être au format PNG.<br />
+    - Les vignettes et images playfields et backglasses doivent être au format JPG.<br /><br />
+    <i>Les identifiants de connexion Servimg sont à demander à un administrateur ou un modérateur du forum.</i>">
+    <iframe style="border:2px solid #62627F;border-radius:10px;width:100%;height:246px;" id="obj_servimg" src="https://servimg.com/multiupload.php?&mode=fae&account=pincab.passion@gmail.com&id=83ce8a7321a87e49ff44a145c025be8b&f=4594347"></iframe>
+  </div>
+  <div style="margin-left:10px;border:2px solid #62627F;border-radius:10px;background:#111111;padding:10px;width:50%;">
+    <p style="text-align:justify;">&#8226; Mettre le redimensionnement (1024 px par défaut) sur NON.<br /><br/>
+    &#8226; Avant d'uploader une nouvelle image et de générer d'éventuels doublons, vérifier qu'elle n'existe pas déjà sur Servimg en consultant les dossiers :<br/>
+    <p><a style="float:left;" href="https://servimg.com/images.php?cat_id=40&625593" target="_blank">Tables_Miniwheels [PNG]</a>
+    <a style="float:right;" href="https://servimg.com/images.php?cat_id=41&330331" target="_blank">Tables_Backgrounds [PNG]</a>
+    <a style="float:left;" href="https://servimg.com/images.php?cat_id=30&762863" target="_blank">Tables_Playfields_Vign. [JPG]</a>
+    <a style="float:right;" href="https://servimg.com/images.php?cat_id=31&184670" target="_blank">Tables_Playfields [JPG]</a>
+    <a style="float:left;" href="https://servimg.com/images.php?cat_id=32&633656" target="_blank">Tables_Backglasses_Vign. [JPG]</a>
+    <a style="float:right;" href="https://servimg.com/images.php?cat_id=33&725313" target="_blank">Tables_Backglasses [JPG]</a></p>
+    </p>
+  </div>
+</div>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<form id="postform" method="post" name="post" action="/post" enctype="multipart/form-data" onSubmit="return envoiMessage(this)" target="_blank">
+<input type="hidden" name="lt" value="0" />
+<input type="hidden" name="mode" value="newtopic" />
+<input type="hidden" name="topictype" value="0" checked="checked"/>
+<input type="hidden" name="message" value="" />
+<input type="hidden" name="description" value="" />
+<input id="subforum" type="hidden" name="f" value="108" />
+<!-- value = "110" = News du mois ;
+     value = "81"  = Team PP ;
+     value = "96"  = Sélection PP;
+     value = "108" = Fiches à valider ;
+-->
+<ul>
+<li>
+<label class="description" for="majfiche">Mettre à jour ou vérifier une fiche existante :</label>
+<br />
+<div style="text-align:center;display:block;">
+  <input style="margin:0 auto;" id="loadfiche" class="bouton large" type="url" placeholder="URL Pincab Passion de la fiche existante"
+  title="Saisir ici l'URL Pincab Passion de la fiche existante.<br />
+  <i>Doit commencer par 'http://www.pincabpassion.net/'.<br />
+  Laisser vide si création d'une nouvelle fiche de table.</i>" />
+  <input id="resetform2" class="button_text" style="height:27px;padding:2px;" type="reset" value="Réinitialiser"
+  title="Ce bouton réinitialise le formulaire." />
+</div>
+</li>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<label class="description" for="infosfiche">Informations créateur et éditeur de la fiche :</label>
+<p style="margin-top:0;color:#666666;text-align:center;font-size:75%;font-style:italic;">Ces informations apparaitront en fin de fiche.<br />Note : la date indiquée est la date courante et non celle de la dernière édition.</p>
+<div style="text-align:center;">
+  <div id="auteurfichetitre" style="display:inline-block;" title="Sélection du créateur de la fiche.">
+    <select id="auteurfiche" required>
+      <option value="" disabled selected>Créateur fiche :</option>
+      <option value="Bip-Bip-72">Bip-Bip-72</option>
+      <option value="Peskopat">Peskopat</option>
+      <option value="Shadow_SHD">Shadow_SHD</option>
+      <option disabled>--------------------</option>
+      <option value="Aetios">Aetios</option>
+      <option value="Leevuth">Leevuth</option>
+      <option value="Mariopourlavie">Mariopourlavie</option>
+      <option value="Nicofab18">Nicofab18</option>
+      <option value="Razorbaxx">Razorbaxx</option>
+      <option disabled>--------------------</option>
+      <option value="Bluetooth">Bluetooth</option>
+      <option value="PincabPassion">PincabPassion</option>
+    </select>
+    <span class="form required">*</span>&emsp;
+  </div>
+  <div id="editeurfichetitre" style="display:inline-block;" title="Sélection de l'éditeur de la fiche.">
+  <select id="editeurfiche">
+    <option value="" disabled selected>Éditeur fiche :</option>
+    <option value="Bip-Bip-72">Bip-Bip-72</option>
+    <option value="Peskopat">Peskopat</option>
+    <option value="Shadow_SHD">Shadow_SHD</option>
+    <option disabled>--------------------</option>
+    <option value="Aetios">Aetios</option>
+    <option value="Leevuth">Leevuth</option>
+    <option value="Mariopourlavie">Mariopourlavie</option>
+    <option value="Nicofab18">Nicofab18</option>
+    <option value="Razorbaxx">Razorbaxx</option>
+    <option disabled>--------------------</option>
+    <option value="Bluetooth">Bluetooth</option>
+    <option value="PincabPassion">PincabPassion</option>
+  </select>
+  </div>
+  <span id="editeurficherequis" style="display:none;" class="form required">*</span>&emsp;
+  <div id="raisonfichetitre" style="display:inline-block;" title="Sélection de la raison d'édition de la fiche.">
+  <select id="raisonfiche">
+    <option value="" disabled selected>Raison édition :</option>
+    <option value="ajout média pack">Ajout média pack</option>
+    <option value="correction">Correction</option>
+    <option value="mise à jour table">Mise à jour table</option>
+    <option value="mise à jour db2s">Mise à jour dB2S</option>
+    <option value="mise à jour média pack">Mise à jour média pack</option>
+    <option value="mise à jour URL">Mise à jour URL</option>
+    <option value="migration Centralisation version 6">Migration v6</option>
+  </select>
+  </div>
+  <span id="raisonficherequis" style="display:none;" class="form required">*</span>&emsp;
+  <div id="afficheauteurfiche" style="display:none;margin-top:10px;"></div>
+</div>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<li>
+<div style="text-align:center;">
+  <input id="titre" name="subject" class="bouton large" type="text" placeholder="Nom de la table / Titre du sujet"
+  title="Saisir ici le nom de la table qui sera également le titre du sujet.<br />
+  <i>Si version d'un autre auteur ajouter son nom entre [].</i>" required />
+  <span class="form required">*</span>&emsp;
+  <br />
+  <div id="mpafairetitre" style="display:inline-block;" title="Cocher cette case pour ajouter <i>[MÉDIA PACK À FAIRE]</i> au titre du sujet.">
+    <input id="mpafaire" type="checkbox" />
+    <p style="display:inline-block;color:#999999;font-size:75%;">[MÉDIA PACK À FAIRE]&emsp;&emsp;</p>
+  </div>
+  <div id="ajoutmptitre" style="display:inline-block;" title="Cocher cette case pour ajouter <i>[AJOUT MÉDIA PACK]</i> au titre du sujet.">
+    <input id="ajoutmp" type="checkbox" />
+    <p style="display:inline-block;color:#999999;font-size:75%;">[AJOUT MÉDIA PACK]&emsp;&emsp;</p>
+  </div>
+  <div id="tableteampptitre" style="display:inline-block;" title="Cocher cette case si la table est une création de la Team PP.">
+    <input id="tableteampp" type="checkbox" />
+    <p style="display:inline-block;color:#999999;font-size:75%;">Table Team PP&emsp;&emsp;</p>
+  </div>
+</div>
+</li>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<table cellpadding="5" cellspacing="5" style="text-align:center;width:60%;margin:0 auto;">
+  <tr style="vertical-align:top;">
+    <td style="width:50%;">
+      <li>
+        <input id="urlminiwheel" class="bouton medium" type="url" placeholder="URL de la mini-wheel"
+        title="Saisir ici l'URL de la mini-wheel.<br /><i>Doit commencer par 'http(s)://' et être au format PNG.<br />
+        Si wheel carrée : x = proportionnel et y = 150 pixels.<br />
+        Si wheel rectangulaire : x = 300 pixels et y = proportionnel.</i>" required />
+        <span class="form required">*</span>
+        <img style="display:none;" id="urlminiwheel2" />
+      </li>
+    </td>
+    <td style="width:50%;">
+      <li>
+        <select id="fabricant" title="Sélection du fabricant." required>
+          <option value="" disabled selected>Fabricant :</option>
+          <option value="https://i.servimg.com/u/f62/19/65/43/35/128x1210.png">Autre</option>
+          <option value="https://i.servimg.com/u/f11/19/65/43/35/astro11.png">Astro</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/atari10.png">Atari</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/bally10.png">Bally</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/capcom11.png">Capcom</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/data_e10.png">Data East</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/gamepl10.png">GamePlan</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/gottli10.png">Gottlieb</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/hankin10.png">Hankin</option>
+          <option value="https://i.servimg.com/u/f30/19/65/43/35/inder10.png">Inder</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/juegos11.jpg">Juegos Populares</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/midway10.png">Midway</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/mr_gam10.png">Mr. Game</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/origin11.png">Original</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/p-roc10.png">P-ROC</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/premie10.png">Premier</option>
+          <option value="https://i.servimg.com/u/f62/19/65/43/35/recel10.png">Recel</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/sega10.png">Sega</option>
+          <option value="https://i.servimg.com/u/f62/19/65/43/35/sonic10.png">Sonic</option>
+          <option value="https://i.servimg.com/u/f30/19/65/43/35/spinba10.png">Spinball</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/spooky10.png">Spooky Pinball</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/stern10.png">Stern</option>
+          <option value="https://i.servimg.com/u/f62/19/65/43/35/taito10.png">Taito</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/whizba10.png">Whizbang</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/willia11.png">Williams</option>
+          <option value="https://i.servimg.com/u/f58/19/65/43/35/zaccar10.png">Zaccaria</option>
+        </select>
+        <span class="form required">*</span>
+      </li>
+    </td>
+  </tr>
+  <tr style="vertical-align:middle;">
+    <td style="width:50%;height:150px;">
+      <img class="cadre" id="wheelpreview" title="Zone de prévisualisation de la mini-wheel." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+    </td>
+    <td style="width:50%;height:150px;">
+      <img class="cadre" id="fabpreview" style="width:200px;height:180px;" src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png"
+      title="Zone de prévisualisation du logo fabricant." />
+    </td>
+  </tr>
+  <tr style="vertical-align:top;">
+    <td style="width:50%;"></td>
+    <td style="width:50%;">
+      <li>
+        <input id="annee" style="width:80px;" class="bouton" placeholder="Année"
+        title="Saisir ici l'année de sortie au format AAAA.<br />
+        Si table originale renseigner l'année de disponibilité.<br /><i>Plage : 1900 - 2050</i>." type="number" pattern=".{4}" min="1900" max="2050" required />
+        <span class="form required">*</span>
+      </li>
+    </td>
+  </tr>
+</table>
+
+   <table cellpadding="5" cellspacing="5" style="text-align:center;width:60%;margin:0 auto;">
+     <tr style="vertical-align:top;">
+       <td style="width:20%;">
+         <img src="https://i.servimg.com/u/f58/19/65/43/35/auteur13.png" />
+       </td>
+       <td style="width:20%;">
+         <img src="https://i.servimg.com/u/f58/19/65/43/35/versio14.png" />
+       </td>
+       <td style="width:20%;">
+         <img src="https://i.servimg.com/u/f58/19/65/43/35/date13.png" />
+       </td>
+     </tr>
+     <tr style="vertical-align:top;">
+       <td style="width:20%">
+         <li>
+           <input id="auteur1" class="bouton small" type="text" maxlength="30" placeholder="Auteur(s) ligne 1"
+           title="Saisir ici le ou les auteurs, séparés par un /." required />
+           <span class="form required">*</span>
+         </li>
+         <li>
+           <input id="auteur2" class="bouton small" type="text" maxlength="30" placeholder="Auteur(s) ligne 2"
+           title="Saisir ici le ou les auteurs, séparés par un /.<br /><i>Ligne optionnelle.</i>" />
+           <span>&#160;&#160;</span>
+         </li>
+       </td>
+       <td style="width:20%;">
+         <li>
+          <input id="version" class="bouton small" type="text" placeholder="Version"
+           title="Saisir ici le numéro de version.<br />Chiffres et points uniquement.<br />Si la table n'a pas de numéro de version, saisir <i>Sans</i>" required />
+           <span class="form required">*</span>
+        </li>
+      </td>
+      <td style="width:20%;">
+        <li>
+          <input id="jour" class="datedisp bouton" style="width:2.6em;" type="number" pattern=".{2}" placeholder="JJ"
+          title="Saisir ici le jour de la date au format JJ.<br /><i>Doit être compris entre 1 et 31.</i>" required />
+          <span style="color:white;">/</span>
+          <input id="mois" class="datedisp bouton" style="width:2.6em;" type="number" pattern=".{2}" placeholder="MM"
+          title="Saisir ici le mois de la date au format MM.<br /><i>Doit être compris entre 1 et 12.</i>" required />
+          <span style="color:white;">/</span>
+          <input id="an" class="datedisp bouton" style="width:2.6em;" type="number" pattern=".{2}" placeholder="AA" required />
+          <span class="form required">*</span>
+          <input style="margin-left:-15px;" id="aujourd" class="button_text" type="button" value="Aujourd'hui"
+          title="Ce bouton remplit les champs Date par la date courante.<br />Si les champs sont remplis, un nouveau clic les vide." />
+        </li>
+      </td>
+    </tr>
+  </table>
+  <div id="teampp" style="display:none;">
+  <p></p>
+  <img src="https://i.servimg.com/u/f62/19/65/43/35/banner19.png" style="display:block;margin-left:auto;margin-right:auto;height:auto;width:700px;opacity:0.5;box-shadow:0px 0px 15px #666;" />
+  <p></p>
+  <p></p>
+  </div>
+
+  <img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+
+  <table cellpadding="5" cellspacing="5" style="text-align:center;width:80%;margin:0 auto;">
+    <th style="background:none;">
+      <img src="https://i.servimg.com/u/f58/19/65/43/35/playfi11.png" />
+    </th>
+    <th style="background:none;">
+      <img src="https://i.servimg.com/u/f58/19/65/43/35/backgl11.png" />
+    </th>
+    <th style="background:none;">
+      <img src="https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png" />
+    </th>
+    <tr style="vertical-align:top;">
+      <td style="width:20%;">
+        <li>
+          <input id="urlvignplayfield" class="bouton medium" type="url" accept="image/jpg" placeholder="URL de la vignette playfield"
+          title="Saisir ici l'URL de la vignette du playfield.<br /><i>Doit commencer par 'http(s)://' et être au format JPG.</i>" required />
+          <span class="form required">*</span>
+          <img style="display:none;" id="urlvignplayfield2" />
+        </li>
+        <li>
+          <input id="urlplayfield" class="bouton medium" type="url" placeholder="URL de l'image playfield"
+          title="Saisi ici l'URL de l'image du playfield.<br /><i>Doit commencer par 'http(s)://' et être au format JPG.</i>" required />
+          <span class="form required">*</span>
+          <img style="display:none;" id="urlplayfield2" />
+        </li>
+      </td>
+      <td style="width:20%;">
+      <li>
+        <input id="urlvignbackglass" class="bouton medium" type="url" placeholder="URL de la vignette backglass"
+        title="Saisir ici l'URL de la vignette du backglass.<br /><i>Doit commencer par 'http(s)://' et être au format JPG.</i>" required />
+        <span class="form required">*</span>
+        <img style="display:none;" id="urlvignbackglass2" />
+      </li>
+      <li>
+        <input id="urlbackglass" class="bouton medium" type="url" placeholder="URL de l'image backglass"
+        title="Saisir ici l'URL de l'image du backglass.<br /><i>Doit commencer par 'http(s)://' et être au format JPG.</i>" required />
+        <span class="form required">*</span>
+        <img style="display:none;" id="urlbackglass2" />
+      </li>
+      </td>
+      <td style="width:20%;">
+      <li>
+        <div id="urlipdbtitre" title="Saisir ici l'URL de la fiche IPDB.<br /><i>Doit commencer par 'https://www.ipdb.org/machine.cgi?' ou l'exception AC/DC<br />'https://www.ipdb.org/search.pl?any=acdc'.<br />Laisser vide si inexistante.</i>">
+          <input id="urlipdb" class="bouton medium" type="text" placeholder="URL de la fiche IPDB" />
+        </div>
+      </li>
+      </td>
+    </tr>
+    <tr style="vertical-align:middle;">
+      <td style="width:20%;height:150px;">
+        <img class="cadre" style="width:250px;height:250px;object-fit:cover;" id="playfieldpreview" title="Zone de prévisualisation du playfield." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+      </td>
+      <td style="width:20%;height:150px;">
+        <img class="cadre" style="width:250px;height:250px;object-fit:cover;" id="backglasspreview" title="Zone de prévisualisation du backglass." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+      </td>
+      <td style="width:20%;height:150px;">
+        <img class="cadre" style="width:250px;height:250px;" id="ipdbpreview" src="https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png"
+        title="Grisé si URL non renseignée, normal si URL renseignée." />
+      </td>
+    </tr>
+  </table>
+
+  <img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+
+  <table cellpadding="5" cellspacing="5" style="text-align:center;width:80%;margin:0 auto;">
+    <th colspan="4" style="background:none;">
+      <img src="https://i.servimg.com/u/f58/19/65/43/35/links12.png" />
+    </th>
+    <tr style="vertical-align:top;">
+      <td style="width:20%;">
+        <li>
+          <input id="urlsujet" class="bouton small" type="url" placeholder="URL du sujet support"
+          title="Saisir ici l'URL du sujet [SUPPORT].<br /><i>Doit commencer par 'http://www.pincabpassion.net/'.<br />" required />
+          <span class="form required">*</span>
+        </li>
+      </td>
+      <td style="width:20%;">
+        <li>
+          <input id="urltable" class="bouton small" style="width:169px;" type="url" placeholder="URL de la table"
+          title="Saisir ici l'URL de la table.<br /><i>Doit commencer par 'http(s)://'.</i>" required />
+          <span class="form required">*</span>
+        </li>
+      </td>
+      <td style="width:20%;">
+        <li>
+          <div id="urldb2stitre" title="Saisir ici l'URL du backglass.<br /><i>Doit commencer par 'http(s)://'.</i>">
+          <input id="urldb2s" class="bouton small" type="url" placeholder="URL du dB2S" required />
+          <span class="form required">*</span></div>
+          <div id="db2stablediv" style="display:inline-block;" title="Cocher cette case si le dB2S est fourni avec la table.<br />Note : si la case est cochée le champ est réinitialisé.">
+            <input id="db2stable" type="checkbox" value="oui" />
+            <p style="display:inline-block;color:#999999;text-align:center;font-size:75%;">Fourni avec la table</p>
+          </div>
+        </li>
+      </td>
+      <td style="width:20%;">
+        <li>
+          <input id="urlmediapack" class="bouton small" type="url" placeholder="URL du Média Pack"
+          title="Saisir ici l'URL du média pack.<br /><i>Doit commencer par 'https://mega.nz/'.<br />
+          Laisser vide si non disponible.</i>" />
+        </li>
+      </td>
+    </tr>
+    <tr style="vertical-align:top;height:30px">
+      <td style="width:20%;">
+        <img id="urlsujetpreview" class="cadre" style="width:180px;height:26px;border-radius:5px;object-fit:none;"
+        title="Zone de prévisualisation du bouton Sujet." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+      </td>
+      <td style="width:20%;">
+        <img id="urltablepreview" class="cadre" style="width:180px;height:26px;border-radius:5px;object-fit:none;"
+        title="Zone de prévisualisation du bouton Table." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+      </td>
+      <td style="width:20%;">
+        <img id="urldb2spreview" class="cadre" style="width:180px;height:26px;border-radius:5px;object-fit:none;"
+        title="Zone de prévisualisation du bouton dBD2S." src="https://i.servimg.com/u/f62/19/65/43/35/transp10.png" />
+      </td>
+      <td style="width:20%;">
+        <img id="urlmediapackpreview" class="cadre" style="width:180px;height:26px;border-radius:5px;object-fit:none;"
+        title="Zone de prévisualisation du bouton Média Pack." src="https://i.servimg.com/u/f58/19/65/43/35/mpsoon10.png" />
+      </td>
+    </tr>
+  </table>
+  <img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+  <img class="separator" src="https://i.servimg.com/u/f58/19/65/43/35/chinno11.png" />
+  <li>
+    <div style="text-align:center;">
+    <input id="urlbackground" class="bouton medium" type="url" placeholder="URL background"
+    title="Saisir ici l'URL de l'image de fond de la zone 'Changelog'.<br /><i>Doit commencer par 'http(s)://' et être au format PNG.<br />
+    Taille : x 700 x 300 pixels maxi.</i>" required />
+    <span class="form required">*</span>
+    <img style="display:none;" id="urlbackground2" />
+    </div>
+  </li>
+  <p></p>
+  <div id="backimg" style="width:80%;margin:0 auto;">
+  <li>
+    <input style="position:absolute;left:10px;" id="changeloginitial" class="button_text" type="button" value="Par défaut"
+    title="Ce bouton remplit le champ 'Changelog' par :<br /><i>v1.0<br />- Initial release.</i><br />Si le champ est rempli, un nouveau clic le vide." />
+    <div style="text-align:center;">
+    <img style="vertical-align:middle;" src="https://i.servimg.com/u/f58/19/65/43/35/change12.png" />
+    <span class="form required">*</span></div>
+    <p></p>
+    <textarea style="height:200px;resize:none;" id="changelog" class="textarea medium"
+    title="Saisir ici le changelog éventuel.<br />Par défaut :<br /><i>v1.0<br />- Initial release.</i><br /><br />
+    <b>IMPORTANT :</b> renseigner le changelog dans l'ordre chronologique inverse, de la version la plus récente à la version la plus ancienne !" required></textarea>
+    <p></p>
+    <p></p>
+  </li>
+  
+  <li>
+    <input style="position:absolute;left:10px;" id="infosaucunes" class="button_text" type="button" value="Par défaut"
+    title="Ce bouton remplit le champ 'Infos' par :<br /><i>Aucunes.</i><br />Si le champ est rempli, un nouveau clic le vide." />
+    <div style="text-align:center;">
+    <img style="vertical-align:middle;" src="https://i.servimg.com/u/f58/19/65/43/35/infos211.png" />
+    <span class="form required">*</span></div>
+    <p></p>
+    <textarea style="resize:none;" id="infos" class="textarea medium"
+    title="Saisir ici les infos éventuelles.<br />Par défaut :<br /><i>Aucunes.</i>" required></textarea>
+    <p></p>
+    <p></p>
+  </li>
+  
+  <li>
+    <input style="position:absolute;left:10px;" id="notesaucunes" class="button_text" type="button" value="Par défaut"
+    title="Ce bouton remplit le champ Notes par :<br /><i>Aucunes.</i><br />Si le champ est rempli, un nouveau clic le vide." />
+    <div style="text-align:center;">
+    <img style="vertical-align:middle;" src="https://i.servimg.com/u/f58/19/65/43/35/notes11.png" />
+    <span class="form required">*</span></div>
+    <p></p>
+    <textarea style="resize:none;" id="notes" class="textarea medium"
+    title="Saisir ici les notes éventuelles.<br />Par défaut:<br /><i>Aucunes.</i>" required></textarea>
+    <p></p>
+    <p></p>
+  </li>
+  </div>
+  <li>
+    <div style="text-align:center;">
+    <select id="modifications" title="Sélection de l'autorisation de modifications." required>
+      <option value="" disabled selected>Modifications autorisées :</option>
+      <option value="Oui, avec accord de/des auteur(s).">Oui, avec accord de/des auteur(s).</option>
+      <option value="Oui, sans accord de/des auteur(s).">Oui, sans accord de/des auteur(s).</option>
+      <option value="Non.">Non.</option>
+      <option value="Contacter le/les auteur(s).">Contacter le/les auteur(s).</option>
+      <option value="Non précisé.">Non précisé.</option>
+    </select>
+    <span class="form required">*</span>
+    </div>
+  </li>
+  <img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+  <li>
+    <label class="description" for="majfiche">Fiche à publier dans la section :</label>
+    <p style="margin-top:0;color:#666666;text-align:center;font-size:75%;font-style:italic;">Pendant la période d'essai les membres ne peuvent publier les fiches que dans la sous-section "Tables à valider".</p>
+    <div style="text-align:center;display:block;">
+      <input type="radio" id="subf1" name="subf" value="108" checked /> À valider&emsp;&emsp;
+      <input type="radio" id="subf2" name="subf" value="110" /> News du mois&emsp;&emsp;
+      <input type="radio" id="subf3" name="subf" value="81" /> Team PP&emsp;&emsp;
+      <input type="radio" id="subf4" name="subf" value="96" /> Sélection PP
+    </div>
+  </li>
+  <img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+  <li class="buttons">
+    <div style="text-align:center;">
+    <input id="apercu" class="button_text" type="submit" name="preview" value="&emsp;Aperçu&emsp;"
+    title="Ce bouton génére une prévisualisation du sujet créé par le formulaire." /> 
+    <input id="saveform" class="button_text" type="submit" name="post" value="&emsp;Publier&emsp;"
+    title="Ce bouton génére le sujet créé par le formulaire." />
+    <input id="resetform" class="button_text" type="reset" value="Réinitialiser"
+    title="Ce bouton réinitialise le formulaire." />
+    <p></p>
+    <input id="generecodehtml" class="button_text" type="button" value="Afficher code HTML fiche"
+    title="Ce bouton affiche ou masque le code HTML de la fiche." />
+    <input id="generecodesupport" class="button_text" type="button" value='Afficher code HTML "Support"'
+    title="Ce bouton affiche ou masque le code HTML à copier dans le sujet <i>Support</i>." />
+    <input id="support" class="button_text" type="button" value="Sujets support"
+    title="Ce bouton ouvre la sous-section <i>Support des tables VPX</i> dans un nouvel onglet." onclick="window.open('f116-support-des-tables-vpx', '_blank');"/>
+    </div>
+  </li>
+</ul>
+<div id="codehtml" style="width:80%;margin:auto;text-align:center;vertical-align:middle;display:none;">
+<label class="description" style="display:inline-block;">Code HTML de la fiche : </label>
+<input id="refreshcodehtml" class="button_text" style="display:inline-block;" type="button" value="MÀJ HTML"
+title="Ce bouton met à jour le code HTML." />
+<input id="copycodehtml" class="button_text" style="display:inline-block;" type="button" value="Copier HTML"
+title="Ce bouton copie le code HTML dans le presse-papier du navigateur puis masque la zone d'affichage." />
+<p></p>
+<textarea id="codehtmlcontenu" class="textarea medium" style="resize:none;height:400px;font-size:10pt;color:#666;"></textarea>
+</div>
+<div id="codesupport" style="width:80%;margin:auto;text-align:center;vertical-align:middle;display:none;">
+<label class="description" style="display:inline-block;text-align:left;">Code HTML du sujet <i>Support</i> : </label>
+<input id="refreshcodesupport" class="button_text" style="display:inline-block;" type="button" value="MÀJ HTML"
+title="Ce bouton met à jour le code HTML." />
+<input id="copycodesupport" class="button_text" style="display:inline-block;" type="button" value="Copier HTML"
+title="Ce bouton copie le code HTML dans le presse-papier du navigateur puis masque la zone d'affichage." />
+<p></p>
+<textarea id="codesupportcontenu" class="textarea medium" style="resize:none;height:6em;font-size:10pt;color:#666;"></textarea>
+</div>
+</form>
+<img class="separator" src="https://i.servimg.com/u/f84/19/25/98/58/2sep10.png" />
+<div id="footer">
+  <span style="color:red;">*</span><label>: champ requis.<p></p></label>
+  Formulaire créé par <a href="u1621" target="_blank">Shadow_SHD.</a><br />&copy; www.pincabpassion.net.<br /><br />Version 3.0 Novembre 2018.<br />Utilisation strictement réservée au forum Pincab Passion.
+</div>
+
+<script src="https://shadowshd.github.io/Formulaire-fiche-VPX/javascript.js"></script>
+</body>

@@ -986,47 +986,46 @@ $("#urlipdb").change(function () {
       trimurl = trimurl.replace("https://ipdb.org/", "https://www.ipdb.org/");
       toastr.warning("URL IPDB <i>https://ipdb.org/</i> modifiée en <i>https://www.ipdb.org/</i>.", "Information :");
     }
-  }
-  if (trimurl.indexOf("https://www.ipdb.org/machine.cgi?id=") !== 0 && trimurl.indexOf("https://www.ipdb.org/search.pl?any=acdc") !== 0 && trimurl !== "") {
-    $("#urlipdb").val("");
-    $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
-    urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    var toastrmsg = "L'URL est incorrecte ou ne redirige pas vers ipdb.org !<br />Elle doit contenir <i>https://www.ipdb.org/machine.cgi?id=</i> ou l'exception AC/DC<br /><i>https://www.ipdb.org/search.pl?any=acdc</i>.";
-    if (importtoastr === false) {
-      toastr.error(toastrmsg, "Fiche IPDB :");
-      $("#urlipdb").focus();
-    } else {
-      toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
+    if (trimurl.indexOf("https://www.ipdb.org/machine.cgi?id=") !== 0 && trimurl.indexOf("https://www.ipdb.org/search.pl?any=acdc") !== 0 && trimurl !== "") {
+      $("#urlipdb").val("");
+      $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
+      urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
+      var toastrmsg = "L'URL est incorrecte ou ne redirige pas vers ipdb.org !<br />Elle doit contenir <i>https://www.ipdb.org/machine.cgi?id=</i> ou l'exception AC/DC<br /><i>https://www.ipdb.org/search.pl?any=acdc</i>.";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "Fiche IPDB :");
+        $("#urlipdb").focus();
+      } else {
+        toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
+      }
+      return;
+    } else if (trimurl.match(/[0-9]/g) == null && trimurl.indexOf("https://www.ipdb.org/search.pl?any=acdc") !== 0) {
+      $("#urlipdb").val("");
+      $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
+      urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
+      var toastrmsg = "L'URL saisie ne contient ni l'identifiant IPDB (nombre après <i>?id=</i> ni l'exception AC/DC <i>?any=acdc</i> !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "Fiche IPDB :");
+        $("#urlipdb").focus();
+      } else {
+        toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
+      }
+      return;
+    } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
+      $("#urlipdb").val("");
+      $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
+      urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
+      var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "Fiche IPDB :");
+        $("#urlipdb").focus();
+      } else {
+        toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
+      }
+      return;
     }
-    return;
-  } else if (trimurl.match(/[0-9]/g) == null && trimurl.indexOf("https://www.ipdb.org/search.pl?any=acdc") !== 0) {
-    $("#urlipdb").val("");
-    $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
-    urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    var toastrmsg = "L'URL saisie ne contient ni l'identifiant IPDB (nombre après <i>?id=</i> ni l'exception AC/DC <i>?any=acdc</i> !";
-    if (importtoastr === false) {
-      toastr.error(toastrmsg, "Fiche IPDB :");
-      $("#urlipdb").focus();
-    } else {
-      toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
-    }
-    return;
-  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
-    $("#urlipdb").val("");
-    $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
-    urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
-    if (importtoastr === false) {
-      toastr.error(toastrmsg, "Fiche IPDB :");
-      $("#urlipdb").focus();
-    } else {
-      toastr.error(toastrmsg, "Fiche IPDB :", {timeOut: 10000});
-    }
-    return;
   } else if (trimurl === "") {
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png").unwrap("a");
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    return;
   } else {
     $("#urlipdb").val(trimurl);
     $("#ipdbpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/ipdb1110.png").wrap("<a href='" + $("#urlipdb").val() + "' target='_blank'>");
@@ -2012,9 +2011,8 @@ function creeCodeHTML () {
   }
 
 // Définition de la zone Titre, Playfield Backglass IPDB.
-  if (!urlipdb2) {
+  if (urlipdb2 === "") {
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
-    toastr.error("Merci de vérifier le champ <i>URL IPDB</i>.", "Erreur critique !", { timeOut: 6000 });
   }
   presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />&#13;&#10;" +
   "<table style='padding:5;border-spacing:5;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +

@@ -1513,6 +1513,7 @@ function resetChamps() {
   pseudofiche1 = "";
   pseudofiche2 = "";
   pseudofiche3 = "";
+  urlipdb2 = "";
   titretable = false;
   $("#teampp, #afficheauteurfiche").hide();
   $("#wheelpreview, #fabpreview, #playfieldpreview, #backglasspreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png");

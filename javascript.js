@@ -132,7 +132,6 @@ if ($.inArray(_userdata["user_id"], [4429]) != -1) {
 $("input[type=radio][name=subf]").change(function() {
   $("#subforum").val($(this).val());
   var choixf = $("#subforum").val();
-  alert(choixf);
   if (choixf === "110" || choixf === "96" || choixf === "108") {
     if ($("#tableteampp").is(":checked") && $("#auteur1").val() !== "Team PP") {
       $("#tableteampp").prop("checked", false).change();

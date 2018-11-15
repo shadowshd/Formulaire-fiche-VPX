@@ -1559,7 +1559,7 @@ $("#loadfiche").change(function () {
     toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
     return;
   }
-  $("#loadfiche").val(trimurl);
+  $("#loadfiche").val(trimurl.split("#")[0]);
   $.get(trimurl, function (pagehtml) {
     var loadfiche = trimurl;
     var erreur = "La fiche ne contient pas l'identifiant ";

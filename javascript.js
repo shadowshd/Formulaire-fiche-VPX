@@ -1544,7 +1544,15 @@ function resetChamps() {
 
 $("#loadfiche").change(function () {
   var trimurl = $(this).val().trim();
-  if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
+  if (trimurl === "http://www.pincabpassion.net/" || trimurl === "http://www.pincabpassion.net") {
+    $("#loadfiche").val("");
+    var toastrmsg = "L'URL saisie ne peut pas être la page d'accueil du forum :-)";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL fiche existante :");
+    } else {
+      toastr.error(toastrmsg, "URL fiche existante :", {timeout: 10000});
+    }
+  } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#loadfiche").val("");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {

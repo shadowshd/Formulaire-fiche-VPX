@@ -1036,6 +1036,16 @@ $("#urlipdb").change(function () {
 // Vérification URL sujet [SUPPORT] Pincab Passion.
 $("#urlsujet").change(function () {
   var trimurl = $(this).val().trim().split("#")[0];
+  if (trimurl === "http://www.pincabpassion.net/" || trimurl === "http://www.pincabpassion.net") {
+    $("#urlsujet").val("");
+    var toastrmsg = "L'URL ne peut pas être la page d'accueil du forum !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL sujet [SUPPORT] :");
+    } else {
+      toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeout: 10000});
+    }
+    return;
+  }
   $("#urlsujet").val(trimurl);
   if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
     $("#urlsujet").val("");
@@ -1112,6 +1122,16 @@ $("#urltable").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
+    if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil MEGA !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urltable").val(trimurl);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1129,6 +1149,16 @@ $("#urltable").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
+    if (trimurl === "https://www.vpforums.org/" || trimurl === "https://www.vpforums.org") {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPForums !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1146,6 +1176,16 @@ $("#urltable").change(function () {
     }
     return;
   } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
+    if (trimurl === "http://vpuniverse.com/" || trimurl === "http://vpuniverse.com") {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPFUniverse !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1163,6 +1203,16 @@ $("#urltable").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
+    if (trimurl === "https://vpinball.com/" || trimurl === "https://vpinball.com") {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPinball !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
       enabledb2stable();
@@ -1180,6 +1230,16 @@ $("#urltable").change(function () {
     }
     return;
   } else if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
+    if (trimurl === "http://www.monsterbashpincab.com/" || trimurl === "http://www.monsterbashpincab.com") {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil MonsterBashPincab !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urltable").val(trimurl.split("#")[0]);
     //disabledb2stable(); fonctions de désactivation automatique des champs dB2S désactivées suite certains dB2S non disponibles chez MBP.
     //disabledb2s();
@@ -1251,6 +1311,16 @@ $("#urldb2s").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
+    if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
+      $("#urldb2s").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil MEGA !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL dB2S :");
+      } else {
+        toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urldb2s").val(trimurl);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/db2spp10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
@@ -1259,6 +1329,16 @@ $("#urldb2s").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
+    if (trimurl === "https://www.vpforums.org/" || trimurl === "https://vpforums.org") {
+      $("#urldb2s").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPForums !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL dB2S :");
+      } else {
+        toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/b2svpf11.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
@@ -1267,6 +1347,16 @@ $("#urldb2s").change(function () {
     }
     return;
   } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
+    if (trimurl === "http://vpuniverse.com/" || trimurl === "http://vpuniverse.com") {
+      $("#urldb2s").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPUniverse !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL dB2S :");
+      } else {
+        toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton ="https://i.servimg.com/u/f58/19/65/43/35/b2svpu10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
@@ -1275,6 +1365,16 @@ $("#urldb2s").change(function () {
     }
     return;
   } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
+    if (trimurl === "https://vpinball.com/" || trimurl === "https://vpinball.com") {
+      $("#urldb2s").val("");
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPinball !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL dB2S :");
+      } else {
+        toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
+      }
+      return;
+    }
     $("#urldb2s").val(trimurl.split("#")[0]);
     backglassbutton = "https://i.servimg.com/u/f58/19/65/43/35/b2svpb10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
@@ -1304,6 +1404,16 @@ $("#urldb2s").change(function () {
 // Vérification URL média pack.
 $("#urlmediapack").change(function () {
   var trimurl = $(this).val().trim();
+  if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
+    $("#urlmediapack").val("");
+    var toastrmsg = "L'URL ne peut pas être la page d'accueil MEGA !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL média pack :");
+    } else {
+      toastr.error(toastrmsg, "URL média pack :", {timeout: 10000});
+    }
+    return;
+  }
   $("#urlmediapack").val(trimurl);
   if (trimurl.indexOf("https://mega.nz/") !== 0 && trimurl !== "") {
     $("#urlmediapack").val("");
@@ -1543,7 +1653,7 @@ function resetChamps() {
 }
 
 $("#loadfiche").change(function () {
-  var trimurl = $(this).val().trim();
+  var trimurl = $(this).val().trim().split("#")[0];
   if (trimurl === "http://www.pincabpassion.net/" || trimurl === "http://www.pincabpassion.net") {
     $("#loadfiche").val("");
     var toastrmsg = "L'URL saisie ne peut pas être la page d'accueil du forum :-)";
@@ -1567,7 +1677,7 @@ $("#loadfiche").change(function () {
     toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
     return;
   }
-  $("#loadfiche").val(trimurl.split("#")[0]);
+  $("#loadfiche").val(trimurl);
   $.get(trimurl, function (pagehtml) {
     var loadfiche = trimurl;
     var erreur = "La fiche ne contient pas l'identifiant ";

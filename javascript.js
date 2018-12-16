@@ -1384,7 +1384,7 @@ $("#urldb2s").change(function () {
       }
       return;
     } else if (trimurl.indexOf("https://vpinball.com/?s") === 0) {
-      $("#urltable").val("");
+      $("#urldb2s").val("");
       var toastrmsg = "L'URL ne peut pas être le moteur de recherche VPinball !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL table :");

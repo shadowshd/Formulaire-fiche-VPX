@@ -1212,6 +1212,15 @@ $("#urltable").change(function () {
         toastr.error(toastrmsg, "URL table :", {timeout: 10000});
       }
       return;
+    } else if (trimurl.indexOf("https://vpinball.com/?s") === 0) {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être le moteur de recherche VPinball !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
+      }
+      return;
     }
     $("#urltable").val(trimurl.split("#")[0]);
     if (!$("#db2stable").is(":checked")) {
@@ -1372,6 +1381,15 @@ $("#urldb2s").change(function () {
         toastr.error(toastrmsg, "URL dB2S :");
       } else {
         toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
+      }
+      return;
+    } else if (trimurl.indexOf("https://vpinball.com/?s") === 0) {
+      $("#urltable").val("");
+      var toastrmsg = "L'URL ne peut pas être le moteur de recherche VPinball !";
+      if (importtoastr === false) {
+        toastr.error(toastrmsg, "URL table :");
+      } else {
+        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
       }
       return;
     }

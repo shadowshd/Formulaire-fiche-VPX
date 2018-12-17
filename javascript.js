@@ -1156,7 +1156,7 @@ $("#urltable").change(function () {
         toastr.error(toastrmsg, "URL table :", {timeout: 10000});
       }
       return;
-    } else if {trimurl.indexOf("https://www.vpforums.org/index.php?app=core&module=search") === 0) {
+    } else if (trimurl.indexOf("https://www.vpforums.org/index.php?app=core&module=search") === 0) {
       $("#urltable").val("");
       var toastrmsg = "L'URL ne peut pas être le moteur de recherche VPForums !";
       if (importtoastr === false) {

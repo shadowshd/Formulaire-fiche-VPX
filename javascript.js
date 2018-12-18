@@ -1343,7 +1343,6 @@ $("#urldb2s").change(function () {
   } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien dB2S :");
-  }
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
       $("#urldb2s").val("");

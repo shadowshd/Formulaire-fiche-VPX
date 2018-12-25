@@ -2217,18 +2217,18 @@ function creeCodeHTML () {
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
   }
   presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />&#13;&#10;" +
-  "<table style='padding:5;border-spacing:5;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +
+  "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +
   $("#urlminiwheel").val() + "' /></td><td style='width:50%;'><img id='fichefabricant' src='" + $("#fabricant").val() + "' /><br /><b><span id='ficheannee'>" +
   $("#annee").val() + "</span></b></td></tr></table></center>&#13;&#10;&#13;&#10;" +
-  "<center><table style='padding:5;border-spacing:5;width:60%;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
-  "<img src='https://i.servimg.com/u/f58/19/65/43/35/auteur13.png' /><br /><span style='display:inline;margin:0;padding:0;' id='ficheauteur1'>" + $("#auteur1").val() +
-  "</span><br /><span style='margin:0;padding:0;' id='ficheauteur2'>" + $("#auteur2").val() + "</span></td><td style='width:20%;'>" +
-  "<img src='https://i.servimg.com/u/f58/19/65/43/35/versio14.png' /><br /><span style='display:inline;margin:0;padding:0;' id='ficheversion'>" + $("#version").val() +
+  "<center><table style='padding:5px;border-spacing:5px;width:60%;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
+  "<img src='https://i.servimg.com/u/f58/19/65/43/35/auteur13.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheauteur1'>" + $("#auteur1").val() +
+  "</span><br /><span style='margin:0px;padding:0px;' id='ficheauteur2'>" + $("#auteur2").val() + "</span></td><td style='width:20%;'>" +
+  "<img src='https://i.servimg.com/u/f58/19/65/43/35/versio14.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheversion'>" + $("#version").val() +
   "</span></td><td style='width:20%;'><img src='https://i.servimg.com/u/f58/19/65/43/35/date13.png' /><br /><span style='margin:0;padding:0;display:inline;' id='fichejour'>" +
-  $("#jour").val() + "</span>/<span style='margin:0;padding:0;display:inline;' id='fichemois'>" + $("#mois").val() +
-  "</span>/<span style='margin:0;padding:0;display:inline;' id='fichean'>" + $("#an").val() + 
+  $("#jour").val() + "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichemois'>" + $("#mois").val() +
+  "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichean'>" + $("#an").val() + 
   "</span></td></tr></table>&#13;&#10;" + teampptable + "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;&#13;&#10;" +
-  "<center><table style='padding:5;border-spacing:5;width:80%;'><th style='background:none'>" +
+  "<center><table style='padding:5px;border-spacing:5px;width:80%;'><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/playfi11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/backgl11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png' /></th><tr style='text-align:center;'><td style='width:20%;'><a id='ficheurlplayfield' href='" +
@@ -2271,7 +2271,7 @@ function creeCodeHTML () {
     "<img class='cadretablevpx button' src='https://i.servimg.com/u/f58/19/65/43/35/medpac11.png' /></a></td>";
   }
 
-  tablelinks = "<center><table style='padding:5;border-spacing:5;width:'" + tablewidth + ";'><th colspan='" + tablecolspan + "' style='background:none'>" +
+  tablelinks = "<center><table style='padding:5px;border-spacing:5px;width:'" + tablewidth + ";'><th colspan='" + tablecolspan + "' style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/links12.png' /></th><tr style='text-align:center;'>" + urlsujet + urltable + urldb2s + urlmediapack +
   "</tr></table>&#13;&#10;<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;";
 
@@ -2279,7 +2279,7 @@ function creeCodeHTML () {
   zoneinfo = "<br><center><img src='https://i.servimg.com/u/f58/19/65/43/35/chinno11.png' /></center><br><br>" +
   "<div id='ficheurlbackground' class='scrollzonetablevpx' style='background-image:linear-gradient(to bottom, rgba(41,41,38,0.9) 0%,rgba(41,41,38,0.9) 100%),url(" +
   $("#urlbackground").val() + ");background-repeat:no-repeat;background-position:center center;'>" +
-  "<img src='https://i.servimg.com/u/f58/19/65/43/35/change12.png' /><br><span id='fichechangelog' style='margin:0;padding:0;'>" +
+  "<img src='https://i.servimg.com/u/f58/19/65/43/35/change12.png' /><br><span id='fichechangelog' style='margin:0px;padding:0px;'>" +
   $("#changelog").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/infos211.png' /><br><span id='ficheinfos' style='margin:0;padding:0;'>" +
   $("#infos").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/notes11.png' /><br><span id='fichenotes' style='margin:0;padding:0;'>" +
   $("#notes").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/modaut11.png' /><br><span id='fichemodifs' style='margin:0;padding:0;'>" +
@@ -2305,7 +2305,7 @@ function creeCodeHTML () {
 
   codehtmlfiche = presentationtable + tablelinks + zoneinfo + infosfiche;
   codesupportfiche = "<center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />" +
-  "<table style='padding:5;border-spacing:5;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img src='" + $("#urlminiwheel").val() + "' />" +
+  "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img src='" + $("#urlminiwheel").val() + "' />" +
   "</td><td style='width:50%;'><img src='" + $("#fabricant").val() + "' /><br /><b><span>" + $("#annee").val() + "</span></b></td></tr>" +
   "<tr style='text-align:center;'><td colspan='2'><img src='https://i.servimg.com/u/f30/19/65/43/35/supthr10.png' /></td></tr></table>" +
   "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>";

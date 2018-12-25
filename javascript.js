@@ -2224,7 +2224,7 @@ function creeCodeHTML () {
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/auteur13.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheauteur1'>" + $("#auteur1").val() +
   "</span><br /><span style='margin:0px;padding:0px;' id='ficheauteur2'>" + $("#auteur2").val() + "</span></td><td style='width:20%;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/versio14.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheversion'>" + $("#version").val() +
-  "</span></td><td style='width:20%;'><img src='https://i.servimg.com/u/f58/19/65/43/35/date13.png' /><br /><span style='margin:0;padding:0;display:inline;' id='fichejour'>" +
+  "</span></td><td style='width:20%;'><img src='https://i.servimg.com/u/f58/19/65/43/35/date13.png' /><br /><span style='margin:0px;padding:0px;display:inline;' id='fichejour'>" +
   $("#jour").val() + "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichemois'>" + $("#mois").val() +
   "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichean'>" + $("#an").val() + 
   "</span></td></tr></table>&#13;&#10;" + teampptable + "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;&#13;&#10;" +
@@ -2280,9 +2280,9 @@ function creeCodeHTML () {
   "<div id='ficheurlbackground' class='scrollzonetablevpx' style='background-image:linear-gradient(to bottom, rgba(41,41,38,0.9) 0%,rgba(41,41,38,0.9) 100%),url(" +
   $("#urlbackground").val() + ");background-repeat:no-repeat;background-position:center center;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/change12.png' /><br><span id='fichechangelog' style='margin:0px;padding:0px;'>" +
-  $("#changelog").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/infos211.png' /><br><span id='ficheinfos' style='margin:0;padding:0;'>" +
-  $("#infos").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/notes11.png' /><br><span id='fichenotes' style='margin:0;padding:0;'>" +
-  $("#notes").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/modaut11.png' /><br><span id='fichemodifs' style='margin:0;padding:0;'>" +
+  $("#changelog").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/infos211.png' /><br><span id='ficheinfos' style='margin:0px;padding:0px;'>" +
+  $("#infos").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/notes11.png' /><br><span id='fichenotes' style='margin:0px;padding:0px;'>" +
+  $("#notes").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/modaut11.png' /><br><span id='fichemodifs' style='margin:0px;padding:0px;'>" +
   $("#modifications").val() + "</span></div><br><center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center><br>";
 
 // Définition de la zone Créateur / Éditeur / Raison édition fiche.

@@ -1117,11 +1117,11 @@ $("#urltable").change(function () {
     return;
   } else if (trimurl.indexOf("http://www.vpforums.org/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
-    $("#urltable").val(trimurl);
+    $("#urltable").val(trimurl).change();
     toastr.warning("URL VPForums HTTP modifiée en HTTPS.", "Information lien table :");
   } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
-    $("#urltable").val(trimurl);
+    $("#urltable").val(trimurl).change();
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien table :");
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
@@ -1351,6 +1351,8 @@ $("#urldb2s").change(function () {
   var trimurl = $(this).val().trim();
   if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urldb2s").val("");
+    backglassbutton = "";
+    $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL dB2S :");
@@ -1361,13 +1363,17 @@ $("#urldb2s").change(function () {
     return;
   } else if (trimurl.indexOf("http://www.vpforums.org/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
+    $("#urldb2s").val(trimurl).change();
     toastr.warning("URL VPForums HTTP modifiée en HTTPS.", "Information lien dB2S :");
   } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
+    $("#urldb2s").val(trimurl).change();
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien dB2S :");
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page d'accueil MEGA !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1386,6 +1392,8 @@ $("#urldb2s").change(function () {
   } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
     if (trimurl === "https://www.vpforums.org/" || trimurl === "https://vpforums.org") {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page d'accueil VPForums !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1395,6 +1403,8 @@ $("#urldb2s").change(function () {
       return;
     } else if (trimurl.indexOf("https://www.vpforums.org/index.php?app=core&module=search") === 0) {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page de recherche VPForums !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1413,6 +1423,8 @@ $("#urldb2s").change(function () {
   } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
     if (trimurl === "http://vpuniverse.com/" || trimurl === "http://vpuniverse.com") {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page d'accueil VPUniverse !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1422,6 +1434,8 @@ $("#urldb2s").change(function () {
       return;
     } else if (trimurl.indexOf("http://vpuniverse.com/forums/search/") === 0) {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page de recherche VPUniverse !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1440,6 +1454,8 @@ $("#urldb2s").change(function () {
   } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
     if (trimurl === "https://vpinball.com/" || trimurl === "https://vpinball.com") {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page d'accueil VPinball !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1449,6 +1465,8 @@ $("#urldb2s").change(function () {
       return;
     } else if (trimurl.indexOf("https://vpinball.com/?s") === 0) {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page de recherche VPinball !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1467,6 +1485,8 @@ $("#urldb2s").change(function () {
    } else if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
     if (trimurl === "http://www.monsterbashpincab.com/" || trimurl === "http://www.monsterbashpincab.com") {
       $("#urldb2S").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page d'accueil MonsterBashPincab !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1476,6 +1496,8 @@ $("#urldb2s").change(function () {
       return;
     } else if (trimurl.indexOf("http://www.monsterbashpincab.com/?s") === 0) {
       $("#urldb2s").val("");
+      backglassbutton = "";
+      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
       var toastrmsg = "L'URL ne peut pas être la page de recherche Monsterbashpincab !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
@@ -1514,6 +1536,7 @@ $("#urlmediapack").change(function () {
   var trimurl = $(this).val().trim();
   if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#urlmediapack").val("");
+    $("#urlmediapackpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/mpsoon10.png").unwrap("a");
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL média pack :");
@@ -1524,6 +1547,7 @@ $("#urlmediapack").change(function () {
     return;
   } else if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
     $("#urlmediapack").val("");
+    $("#urlmediapackpreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/mpsoon10.png").unwrap("a");
     var toastrmsg = "L'URL ne peut pas être la page d'accueil MEGA !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL média pack :");

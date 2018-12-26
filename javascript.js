@@ -1117,11 +1117,11 @@ $("#urltable").change(function () {
     return;
   } else if (trimurl.indexOf("http://www.vpforums.org/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
-    $("#urltable").val(trimurl).change();
+    $("#urltable").val(trimurl);
     toastr.warning("URL VPForums HTTP modifiée en HTTPS.", "Information lien table :");
   } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
-    $("#urltable").val(trimurl).change();
+    $("#urltable").val(trimurl);
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien table :");
   } else if (trimurl.indexOf("https://mega.nz/") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {

@@ -972,7 +972,17 @@ $("#urlbackglass2").on({
 // Vérification URL ipdb.org.
 $("#urlipdb").change(function () {
   var trimurl = $(this).val().trim();
-  if (trimurl !== "") {
+  if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
+    $("#urlipdb").val("");
+    var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
+    if (importtoastr === false) {
+      toastr.error(toastrmsg, "URL IPDB :");
+      $("#urlsujet").focus();
+    } else {
+      toastr.error(toastrmsg, "URL IPDB :", {timeOut: 10000});
+    }
+    return;
+  } else if (trimurl !== "") {
     if (trimurl.indexOf("http://www.ipdb.org/") === 0) {
       trimurl = trimurl.replace("http://", "https://");
       toastr.warning("URL IPDB <i>http://</i> modifiée en <i>https:///</i>.", "Information :");

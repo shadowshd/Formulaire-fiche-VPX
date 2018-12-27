@@ -1851,10 +1851,12 @@ $("#loadfiche").change(function () {
       var fichetableteampp = $("#fichetableteampp", pagehtml).attr("src");
       if ((fichetableteampp !== "") && (typeof fichetableteampp !== "undefined")) {
         $("#tableteampp").prop("checked", true);
+        teampptable = "<br /><img id='fichetableteampp' src='https://i.servimg.com/u/f62/19/65/43/35/banner19.png' style='height:auto;width:700px;opacity:0.5;box-shadow:0px 0px 15px #666;' /><br /><br />";
         //$("input[type=radio][name=subf][value=81]").prop("checked", true).change(); // Coche automatiquement le bouton radio Team PP.
         $("#teampp").show();
       } else {
         $("#tableteampp").prop("checked", false);
+        teampptable = "";
         $("#teampp").hide();
       }
 

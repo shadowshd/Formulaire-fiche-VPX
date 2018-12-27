@@ -430,7 +430,7 @@ function formatenom (nom) {
     name = name.replace("Team Pp", "Team PP").replace("Jpsalas", "JPSalas").replace("Jp Salas", "JPSalas").replace("32assassin", "32Assassin").replace("Hanibals", "Hanibal");
     name = name.replace("Freneticamnesic", "FreneticAmnesic").replace("Jpj", "JPJ").replace("Clarkkent", "ClarkKent");
     name = name.replace("Icpjuggla", "ICPjuggla").replace("Nfozzy", "nFozzy").replace("Borgdog", "BorgDog").replace("Djrobx", "DJRobX");
-    name = name.replace("Darthmarino", "DarthMarino");
+    name = name.replace("Darthmarino", "DarthMarino").replace("3Rdaxis", "3rdAxis");
     return name;
   });
   return nom;

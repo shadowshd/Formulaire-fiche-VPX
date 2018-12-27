@@ -2171,7 +2171,7 @@ $(window).on("beforeunload", function () {
 $("#generecodehtml").on("click", function () {
   creeCodeHTML();
   $("#codehtmlcontenu").empty().val(codehtmlfiche);
-  $("#codehtml").toggle("fast");
+  $("#codehtml").toggle();
   if ($("#codehtml").is(":visible")) {
     $("#generecodehtml").val("Masquer code HTML fiche");
   } else {
@@ -2183,7 +2183,7 @@ $("#copycodehtml").on("click", function () {
   $("#codehtmlcontenu").select();
   document.execCommand("Copy");
   toastr.info("Code HTML de la fiche copié dans le presse-papier.", "Information :");
-  $("#codehtml").toggle("fast");
+  $("#codehtml").toggle();
   if ($("#codehtml").is(":visible")) {
     $("#generecodehtml").val("Masquer code HTML fiche");
   } else {
@@ -2199,7 +2199,7 @@ $("#refreshcodehtml").on("click", function() {
 $("#generecodesupport").on("click", function () {
   creeCodeHTML();
   $("#codesupportcontenu").empty().val(codesupportfiche);
-  $("#codesupport").toggle("fast");
+  $("#codesupport").toggle();
   if ($("#codesupport").is(":visible")) {
     $("#generecodesupport").val('Masquer code HTML "Support"');
   } else {
@@ -2211,7 +2211,7 @@ $("#copycodesupport").on("click", function () {
   $("#codesupportcontenu").select();
   document.execCommand("Copy");
   toastr.info("Code HTML du sujet Support copié dans le presse-papier.", "Information :");
-  $("#codesupport").toggle("fast");
+  $("#codesupport").toggle();
   if ($("#codesupport").is(":visible")) {
     $("#generecodesupport").val('Masquer code HTML "Support"');
   } else {

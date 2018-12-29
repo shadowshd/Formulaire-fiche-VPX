@@ -111,11 +111,8 @@ $("input[type=text]:not(#titre), input[type=number], input[type=url]").on("click
 });
 
 // Case à cocher [MÉDIA PACK À FAIRE] / [AJOUT MÉDIA PACK] et Team PP désactivées par défaut et activée si Titre !== "".
-// Case à cocher "MAJ du code HTML de la fiche" désactivée par défaut et activée si "URL Pincab Passion" !== "".
 $("#mpafaire, #tableteampp, #ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);
 $("#mpafairetitre, #tableteampptitre, #ajoutmptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
-$("#majcodehtml, #majcodehtmlfiche").prop("disabled", true).fadeTo("fast", 0.33);
-$("#majcodehtml, #majcodehtmlfiche").prop("title", "<i>Option désactivée car le champ </i>URL Pincab Passion</i> est vide.</i>");
 
 // Fonction de mise en capitales (titre et auteurs).
 String.prototype.toCapital = function () {
@@ -1752,8 +1749,6 @@ function resetChamps() {
   disableediteurraison();
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
-  $("#majcodehtml, #majcodehtmlfiche").prop("disabled", true).fadeTo("fast", 0.33);
-  $("#majcodehtml, #majcodehtmlfiche").prop("title", "<i>Option désactivée car le champ </i>URL Pincab Passion<i> est vide.</i>");
   importtoastr = true;
   pseudofiche0 = "";
   pseudofiche1 = "";
@@ -1818,8 +1813,6 @@ $("#loadfiche").change(function () {
     return;
   }
   $("#loadfiche").val(trimurl);
-  $("#majcodehtml, #majcodehtmlfiche").prop("disabled", false).fadeTo("fast", 1);
-  $("#majcodehtml, #majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
   $.get(trimurl, function (pagehtml) {
     var loadfiche = trimurl;
     var erreur = "La fiche ne contient pas l'identifiant ";

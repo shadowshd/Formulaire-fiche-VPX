@@ -2108,7 +2108,6 @@ $("#loadfiche").change(function () {
       if (fichedatejour2 !== "") {
         if ($("#majcodehtml").is(":checked")) {
           dd = fichedatejour2;
-          alert(dd);
         } else {
           dd = ("0" + dt.getDate()).slice(-2);
         }

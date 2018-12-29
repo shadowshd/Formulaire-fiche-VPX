@@ -2315,10 +2315,10 @@ function creeCodeHTML () {
   $("#jour").val() + "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichemois'>" + $("#mois").val() +
   "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichean'>" + $("#an").val() + 
   "</span></td></tr></table>&#13;&#10;" + teampptable + "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;" +
-  "<table style='padding:5px;border-spacing:5px;width:80%;margin:0 auto;'><th style='background:none'>" +
+  "<table style='padding:5px;border-spacing:5px;width:80%;margin:0 auto;'><tr><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/playfi11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/backgl11.png' /></th><th style='background:none'>" +
-  "<img src='https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png' /></th><tr style='text-align:center;'><td style='width:20%;'><a id='ficheurlplayfield' href='" +
+  "<img src='https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png' /></th></tr><tr style='text-align:center;'><td style='width:20%;'><a id='ficheurlplayfield' href='" +
   $("#urlplayfield").val() + "' target='_blank'><img id='ficheurlvignplayfield' class='cadretablevpx' src='" +
   $("#urlvignplayfield").val() + "' /></a></td><td style='width:20%;'><a id='ficheurlbackglass' href='" + $("#urlbackglass").val() +
   "' target='_blank'><img id='ficheurlvignbackglass' class='cadretablevpx' src='" + $("#urlvignbackglass").val() +
@@ -2358,8 +2358,8 @@ function creeCodeHTML () {
     "<img class='cadretablevpx button' src='https://i.servimg.com/u/f58/19/65/43/35/medpac11.png' /></a></td>";
   }
 
-  tablelinks = "<table style='padding:5px;border-spacing:5px;width:" + tablewidth + ";margin:0 auto;'><th colspan='" + tablecolspan + "' style='background:none'>" +
-  "<img src='https://i.servimg.com/u/f58/19/65/43/35/links12.png' /></th><tr style='text-align:center;'>" + urlsujet + urltable + urldb2s + urlmediapack +
+  tablelinks = "<table style='padding:5px;border-spacing:5px;width:" + tablewidth + ";margin:0 auto;'><tr><th colspan='" + tablecolspan + "' style='background:none'>" +
+  "<img src='https://i.servimg.com/u/f58/19/65/43/35/links12.png' /></th></tr><tr style='text-align:center;'>" + urlsujet + urltable + urldb2s + urlmediapack +
   "</tr></table>&#13;&#10;<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;";
 
 // Définition de la zone Changelog, Infos et Notes.

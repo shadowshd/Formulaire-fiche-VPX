@@ -2303,19 +2303,19 @@ function creeCodeHTML () {
   if (urlipdb2 === "") {
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
   }
-  presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />&#13;&#10;" +
-  "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +
+  presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;" +
+  "<table style='padding:5px;border-spacing:5px;width:40%;margin:0 auto;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +
   $("#urlminiwheel").val() + "' /></td><td style='width:50%;'><img id='fichefabricant' src='" + $("#fabricant").val() + "' /><br /><b><span id='ficheannee'>" +
-  $("#annee").val() + "</span></b></td></tr></table></div>&#13;&#10;&#13;&#10;" +
-  "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:60%;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
+  $("#annee").val() + "</span></b></td></tr></table>&#13;&#10;&#13;&#10;" +
+  "<table style='padding:5px;border-spacing:5px;width:60%;margin:0 auto;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/auteur13.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheauteur1'>" + $("#auteur1").val() +
   "</span><br /><span style='margin:0px;padding:0px;' id='ficheauteur2'>" + $("#auteur2").val() + "</span></td><td style='width:20%;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/versio14.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheversion'>" + $("#version").val() +
   "</span></td><td style='width:20%;'><img src='https://i.servimg.com/u/f58/19/65/43/35/date13.png' /><br /><span style='margin:0px;padding:0px;display:inline;' id='fichejour'>" +
   $("#jour").val() + "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichemois'>" + $("#mois").val() +
   "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichean'>" + $("#an").val() + 
-  "</span></td></tr></table>&#13;&#10;" + teampptable + "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;" +
-  "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:80%;'><th style='background:none'>" +
+  "</span></td></tr></table>&#13;&#10;" + teampptable + "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;" +
+  "<table style='padding:5px;border-spacing:5px;width:80%;margin:0 auto;'><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/playfi11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/backgl11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png' /></th><tr style='text-align:center;'><td style='width:20%;'><a id='ficheurlplayfield' href='" +
@@ -2323,7 +2323,7 @@ function creeCodeHTML () {
   $("#urlvignplayfield").val() + "' /></a></td><td style='width:20%;'><a id='ficheurlbackglass' href='" + $("#urlbackglass").val() +
   "' target='_blank'><img id='ficheurlvignbackglass' class='cadretablevpx' src='" + $("#urlvignbackglass").val() +
   "' /></a></td><td style='width:20%;'>" + urlipdb2 + "</td></tr></table>&#13;&#10;&#13;&#10;" +
-  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;";
+  "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;";
 
 // Définition de la zone Liens et Téléchargements.
 // Bouton SUJET.
@@ -2358,9 +2358,9 @@ function creeCodeHTML () {
     "<img class='cadretablevpx button' src='https://i.servimg.com/u/f58/19/65/43/35/medpac11.png' /></a></td>";
   }
 
-  tablelinks = "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:'" + tablewidth + ";'><th colspan='" + tablecolspan + "' style='background:none'>" +
+  tablelinks = "<table style='padding:5px;border-spacing:5px;width:" + tablewidth + ";margin:0 auto;'><th colspan='" + tablecolspan + "' style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/links12.png' /></th><tr style='text-align:center;'>" + urlsujet + urltable + urldb2s + urlmediapack +
-  "</tr></table>&#13;&#10;<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;";
+  "</tr></table>&#13;&#10;<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;";
 
 // Définition de la zone Changelog, Infos et Notes.
   zoneinfo = "<br><div style='text-align:center;'><img src='https://i.servimg.com/u/f58/19/65/43/35/chinno11.png' /></div><br><br>" +
@@ -2394,11 +2394,11 @@ function creeCodeHTML () {
   infosfiche += "<p style='display:inline;color:#666666;font-size:75%;'>.</p></div>";
 
   codehtmlfiche = presentationtable + tablelinks + zoneinfo + infosfiche;
-  codesupportfiche = "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />" +
-  "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img src='" + $("#urlminiwheel").val() + "' />" +
+  codesupportfiche = "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>" +
+  "<table style='padding:5px;border-spacing:5px;width:40%;margin:0 auto;'><tr style='text-align:center;'><td style='width:50%;'><img src='" + $("#urlminiwheel").val() + "' />" +
   "</td><td style='width:50%;'><img src='" + $("#fabricant").val() + "' /><br /><b><span>" + $("#annee").val() + "</span></b></td></tr>" +
   "<tr style='text-align:center;'><td colspan='2'><img src='https://i.servimg.com/u/f30/19/65/43/35/supthr10.png' /></td></tr></table>" +
-  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>";
+  "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>";
 }
 
 // Création du sujet.

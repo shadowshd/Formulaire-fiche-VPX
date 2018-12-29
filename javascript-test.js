@@ -18,6 +18,9 @@ var datemoisold;
 var dateannew;
 var dateanold;
 var fabricant;
+var fichedatejour;
+var fichedatemois;
+var fichedatean;
 var tablebutton;
 var backglassbutton;
 var codehtmlfiche;
@@ -108,8 +111,11 @@ $("input[type=text]:not(#titre), input[type=number], input[type=url]").on("click
 });
 
 // Case à cocher [MÉDIA PACK À FAIRE] / [AJOUT MÉDIA PACK] et Team PP désactivées par défaut et activée si Titre !== "".
+// Case à cocher "MAJ du code HTML de la fiche" désactivée par défaut et activée si "URL Pincab Passion" !== "".
 $("#mpafaire, #tableteampp, #ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);
 $("#mpafairetitre, #tableteampptitre, #ajoutmptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
+$("#majcodehtml, #majcodehtmlfiche").prop("disabled", true).fadeTo("fast", 0.33);
+$("#majcodehtml, #majcodehtmlfiche").prop("title", "<i>Option désactivée car le champ </i>URL Pincab Passion</i> est vide.</i>");
 
 // Fonction de mise en capitales (titre et auteurs).
 String.prototype.toCapital = function () {
@@ -166,7 +172,7 @@ $("#auteurfiche").change(function () {
   }
   });
 
-// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 1138 et décommenter la ligne 1145.
+// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 173 et décommenter la ligne 180.
 $("#editeurfiche").change(function () {
   if ($(this).val() !== "" && $(this).val() !== null) {
     $("#raisonficherequis").css("display", "inline");
@@ -1746,6 +1752,8 @@ function resetChamps() {
   disableediteurraison();
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
+  $("#majcodehtml, #majcodehtmlfiche").prop("disabled", true).fadeTo("fast", 0.33);
+  $("#majcodehtml, #majcodehtmlfiche").prop("title", "<i>Option désactivée car le champ </i>URL Pincab Passion<i> est vide.</i>");
   importtoastr = true;
   pseudofiche0 = "";
   pseudofiche1 = "";
@@ -1810,6 +1818,8 @@ $("#loadfiche").change(function () {
     return;
   }
   $("#loadfiche").val(trimurl);
+  $("#majcodehtml, #majcodehtmlfiche").prop("disabled", false).fadeTo("fast", 1);
+  $("#majcodehtml, #majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
   $.get(trimurl, function (pagehtml) {
     var loadfiche = trimurl;
     var erreur = "La fiche ne contient pas l'identifiant ";
@@ -2083,8 +2093,11 @@ $("#loadfiche").change(function () {
 
       var ficheediteur = $("#ficheediteur", pagehtml).text();
       if (ficheediteur !== "") {
-        //$("#editeurfiche").val(ficheediteur).change(); // Dernier éditeur de la fiche.
-        $("#editeurfiche").val(username).change(); // Éditeur fiche = utilisateur courant.
+        if ($("#majcodehtml").is(":checked")) {
+          $("#editeurfiche").val(ficheediteur).change(); // Dernier éditeur de la fiche.
+        } else {
+          $("#editeurfiche").val(username).change(); // Éditeur fiche = utilisateur courant.
+        }
         setinfosfiche();
       } else {
         resetVarBlur($("#editeurfiche"));
@@ -2096,6 +2109,39 @@ $("#loadfiche").change(function () {
         setinfosfiche();
       } else {
         resetVarBlur($("#raisonfiche"));
+      }
+
+      var fichedatejour2 = $("#fichedatejour", pagehtml).text();
+      if (fichedatejour2 !== "") {
+        if ($("#majcodehtml").is(":checked")) {
+          dd = fichedatejour2;
+        } else {
+          dd = ("0" + dt.getDate()).slice(-2);
+        }
+      } else {
+        dd = ("0" + dt.getDate()).slice(-2);
+      }
+
+      var fichedatemois2 = $("#fichedatemois", pagehtml).text();
+      if (fichedatemois2 !== "") {
+        if ($("#majcodehtml").is(":checked")) {
+          mm = fichedatemois2;
+        } else {
+          mm = ("0" + (dt.getMonth() + 1)).slice(-2);
+        }
+      } else {
+        mm = ("0" + (dt.getMonth() + 1)).slice(-2);
+      }
+
+      var fichedatean2 = $("#fichedatean", pagehtml).text();
+      if (fichedatean2 !== "") {
+        if ($("#majcodehtml").is(":checked")) {
+          yy = fichedatean2;
+        } else {
+          yy = (dt.getFullYear() + "").slice(-2);
+        }
+      } else {
+        yy = (dt.getFullYear() + "").slice(-2);
       }
     }
   importtoastr = false;
@@ -2264,19 +2310,19 @@ function creeCodeHTML () {
   if (urlipdb2 === "") {
     urlipdb2 = "<img class='cadretablevpx ipdb' src='https://i.servimg.com/u/f58/19/65/43/35/ipdbno11.png' />";
   }
-  presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />&#13;&#10;" +
+  presentationtable = "<div id='fichetablevpx' style='display:none;'></div>&#13;&#10;<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />&#13;&#10;" +
   "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img id='ficheurlminiwheel' src='" +
   $("#urlminiwheel").val() + "' /></td><td style='width:50%;'><img id='fichefabricant' src='" + $("#fabricant").val() + "' /><br /><b><span id='ficheannee'>" +
-  $("#annee").val() + "</span></b></td></tr></table></center>&#13;&#10;&#13;&#10;" +
-  "<center><table style='padding:5px;border-spacing:5px;width:60%;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
+  $("#annee").val() + "</span></b></td></tr></table></div>&#13;&#10;&#13;&#10;" +
+  "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:60%;'><tr style='vertical-align:top;text-align:center;'><td style='width:20%;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/auteur13.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheauteur1'>" + $("#auteur1").val() +
   "</span><br /><span style='margin:0px;padding:0px;' id='ficheauteur2'>" + $("#auteur2").val() + "</span></td><td style='width:20%;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/versio14.png' /><br /><span style='display:inline;margin:0px;padding:0px;' id='ficheversion'>" + $("#version").val() +
   "</span></td><td style='width:20%;'><img src='https://i.servimg.com/u/f58/19/65/43/35/date13.png' /><br /><span style='margin:0px;padding:0px;display:inline;' id='fichejour'>" +
   $("#jour").val() + "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichemois'>" + $("#mois").val() +
   "</span>/<span style='margin:0px;padding:0px;display:inline;' id='fichean'>" + $("#an").val() + 
-  "</span></td></tr></table>&#13;&#10;" + teampptable + "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;&#13;&#10;" +
-  "<center><table style='padding:5px;border-spacing:5px;width:80%;'><th style='background:none'>" +
+  "</span></td></tr></table>&#13;&#10;" + teampptable + "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;" +
+  "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:80%;'><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/playfi11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/backgl11.png' /></th><th style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/ipdb10.png' /></th><tr style='text-align:center;'><td style='width:20%;'><a id='ficheurlplayfield' href='" +
@@ -2284,7 +2330,7 @@ function creeCodeHTML () {
   $("#urlvignplayfield").val() + "' /></a></td><td style='width:20%;'><a id='ficheurlbackglass' href='" + $("#urlbackglass").val() +
   "' target='_blank'><img id='ficheurlvignbackglass' class='cadretablevpx' src='" + $("#urlvignbackglass").val() +
   "' /></a></td><td style='width:20%;'>" + urlipdb2 + "</td></tr></table>&#13;&#10;&#13;&#10;" +
-  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;&#13;&#10;";
+  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;&#13;&#10;";
 
 // Définition de la zone Liens et Téléchargements.
 // Bouton SUJET.
@@ -2319,28 +2365,31 @@ function creeCodeHTML () {
     "<img class='cadretablevpx button' src='https://i.servimg.com/u/f58/19/65/43/35/medpac11.png' /></a></td>";
   }
 
-  tablelinks = "<center><table style='padding:5px;border-spacing:5px;width:'" + tablewidth + ";'><th colspan='" + tablecolspan + "' style='background:none'>" +
+  tablelinks = "<div style='text-align:center;'><table style='padding:5px;border-spacing:5px;width:'" + tablewidth + ";'><th colspan='" + tablecolspan + "' style='background:none'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/links12.png' /></th><tr style='text-align:center;'>" + urlsujet + urltable + urldb2s + urlmediapack +
-  "</tr></table>&#13;&#10;<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>&#13;&#10;";
+  "</tr></table>&#13;&#10;<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>&#13;&#10;";
 
 // Définition de la zone Changelog, Infos et Notes.
-  zoneinfo = "<br><center><img src='https://i.servimg.com/u/f58/19/65/43/35/chinno11.png' /></center><br><br>" +
+  zoneinfo = "<br><div style='text-align:center;'><img src='https://i.servimg.com/u/f58/19/65/43/35/chinno11.png' /></div><br><br>" +
   "<div id='ficheurlbackground' class='scrollzonetablevpx' style='background-image:linear-gradient(to bottom, rgba(41,41,38,0.9) 0%,rgba(41,41,38,0.9) 100%),url(" +
   $("#urlbackground").val() + ");background-repeat:no-repeat;background-position:center center;'>" +
   "<img src='https://i.servimg.com/u/f58/19/65/43/35/change12.png' /><br><span id='fichechangelog' style='margin:0px;padding:0px;'>" +
   $("#changelog").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/infos211.png' /><br><span id='ficheinfos' style='margin:0px;padding:0px;'>" +
   $("#infos").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/notes11.png' /><br><span id='fichenotes' style='margin:0px;padding:0px;'>" +
   $("#notes").val() + "</span><br><br><img src='https://i.servimg.com/u/f58/19/65/43/35/modaut11.png' /><br><span id='fichemodifs' style='margin:0px;padding:0px;'>" +
-  $("#modifications").val() + "</span></div><br><center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center><br>";
+  $("#modifications").val() + "</span></div><br><div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div><br>";
 
 // Définition de la zone Créateur / Éditeur / Raison édition fiche.
-  infosfiche = "<center><p style='display:inline;color:#666666;font-size:75%;'>Fiche créée par </p>" +
+  infosfiche = "<div style='text-align:center;'><p style='display:inline;color:#666666;font-size:75%;'>Fiche créée par </p>" +
   "<p id='ficheauteur' style='display:inline;color:#999999;font-size:75%;'>" + $("#auteurfiche").val() + "</p>";
 
   if ($("#editeurfiche").val() !== null) {
     infosfiche += "<p style='display:inline;color:#666666;font-size:75%;'>. Dernière édition par </p>" +
     "<p id='ficheediteur' style='display:inline;color:#999999;font-size:75%;'>" + $("#editeurfiche").val() + "</p>" +
-    "<p style='display:inline;color:#666666;font-size:75%;'> le " + dd + "/" + mm + "/" + yy + "</p>";
+    "<p style='display:inline;color:#666666;font-size:75%;'> le </p>" +
+    "<p id='fichedatejour' style='display:inline;color:#999999;font-size:75%;'>" + dd + "/</p>" +
+    "<p id ='fichedatemois' style='display:inline;color:#999999;font-size:75%;'>" + mm + "/</p>" +
+    "<p id='fichedatean' style='display:inline;color:#999999;font-size:75%'>" + yy + "</p>";
   }
 
   if ($("#raisonfiche").val() !== null) {
@@ -2349,14 +2398,14 @@ function creeCodeHTML () {
     "<p style='display:inline;color:#666666;font-size:75%;'>)</p>";
   }
 
-  infosfiche += "<p style='display:inline;color:#666666;font-size:75%;'>.</p></center>";
+  infosfiche += "<p style='display:inline;color:#666666;font-size:75%;'>.</p></div>";
 
   codehtmlfiche = presentationtable + tablelinks + zoneinfo + infosfiche;
-  codesupportfiche = "<center><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />" +
+  codesupportfiche = "<div style='text-align:center;'><img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' />" +
   "<table style='padding:5px;border-spacing:5px;width:40%;'><tr style='text-align:center;'><td style='width:50%;'><img src='" + $("#urlminiwheel").val() + "' />" +
   "</td><td style='width:50%;'><img src='" + $("#fabricant").val() + "' /><br /><b><span>" + $("#annee").val() + "</span></b></td></tr>" +
   "<tr style='text-align:center;'><td colspan='2'><img src='https://i.servimg.com/u/f30/19/65/43/35/supthr10.png' /></td></tr></table>" +
-  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></center>";
+  "<img src='https://i.servimg.com/u/f84/19/25/98/58/2sep10.png' /></div>";
 }
 
 // Création du sujet.

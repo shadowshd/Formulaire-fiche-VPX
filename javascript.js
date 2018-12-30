@@ -2168,10 +2168,10 @@ $("#loadfiche").change(function () {
         yy = (dt.getFullYear() + "").slice(-2);
       }
       if ($("#majcodehtml").is(":checked")) {
+        disableMAJcodeHTML();
         $("#editeurfiche").change();
       }
     }
-  disableMAJcodeHTML();
   importtoastr = false;
   });
 });

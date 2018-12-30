@@ -1747,12 +1747,20 @@ function resetVarBlur(identifier) {
   $(identifier).val("").prop("disabled", false).fadeTo("fast", 1).change();
 }
 
+function enableMAJcodeHTML() {
+  $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1);
+  $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
+}
+
+function disableMAJcodeHTML() {
+  $("#majcodehtml").prop("disabled", true).fadeTo("fast", 0.33);
+  $("#majcodehtmlfiche").prop("title", "<i>Option désactivée car importation d'une fiche en cours.</i>");
+}
+
 function resetChamps() {
   disableediteurraison();
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
-  $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1);
-  $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
   importtoastr = true;
   dt = new Date();
   dd = ("0" + dt.getDate()).slice(-2);
@@ -2163,8 +2171,7 @@ $("#loadfiche").change(function () {
         $("#editeurfiche").change();
       }
     }
-  $("#majcodehtml").prop("disabled", true).fadeTo("fast", 0.33);
-  $("#majcodehtmlfiche").prop("title", "<i>Option désactivée car importation d'une fiche en cours.</i>");
+  disableMAJcodeHTML();
   importtoastr = false;
   });
 });
@@ -2215,6 +2222,7 @@ $("#resetform").on("click", function () {
   var reset = confirm("Réinitialiser le formulaire ?");
   if (reset === true) {
     $("#loadfiche").val("").change();
+    enableMAJcodeHTML();
     $("html, body").animate({ scrollTop: 0 }, "fast");
   } else {
     return;
@@ -2225,6 +2233,7 @@ $("#resetform2").on("click", function () {
   var reset = confirm("Réinitialiser le formulaire ?");
   if (reset === true) {
     $("#loadfiche").val("").change();
+    enableMAJcodeHTML();
   } else {
     return;
   }

@@ -2135,6 +2135,7 @@ $("#loadfiche").change(function () {
       }
 
       var fichedatemois = $("#fichedatemois", pagehtml).text();
+      alert(fichedatemois);
       if (fichedatemois !== "") {
         if ($("#majcodehtml").is(":checked")) {
           mm = fichedatemois;

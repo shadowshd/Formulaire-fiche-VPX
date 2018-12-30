@@ -2123,6 +2123,7 @@ $("#loadfiche").change(function () {
       var fichedatejour2 = $("#fichedatejour", pagehtml).text();
       if (fichedatejour2 !== "") {
         if ($("#majcodehtml").is(":checked")) {
+          alert(fichedatejour2);
           dd = fichedatejour2;
         } else {
           dt = new Date();

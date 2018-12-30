@@ -1751,7 +1751,7 @@ function resetChamps() {
   disableediteurraison();
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
-  $("#majcodehtml").prop({"disabled": false, "checked", false}).fadeTo("fast", 1);
+  $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1);
   $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
   importtoastr = true;
   dt = new Date();

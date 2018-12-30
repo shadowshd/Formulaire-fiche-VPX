@@ -17,6 +17,10 @@ var datemoisnew;
 var datemoisold;
 var dateannew;
 var dateanold;
+var dt = "";
+var dd = "";
+var mm = "";
+var yy = "";
 var fabricant;
 var fichedatejour;
 var fichedatemois;
@@ -111,10 +115,10 @@ $("input[type=text]:not(#titre), input[type=number], input[type=url]").on("click
 });
 
 // Récupération de la date actuelle.
-var dt = new Date();
-var dd = ("0" + dt.getDate()).slice(-2);
-var mm = ("0" + (dt.getMonth() + 1)).slice(-2);
-var yy = (dt.getFullYear() + "").slice(-2);
+dt = new Date();
+dd = ("0" + dt.getDate()).slice(-2);
+mm = ("0" + (dt.getMonth() + 1)).slice(-2);
+yy = (dt.getFullYear() + "").slice(-2);
 
 // Case à cocher [MÉDIA PACK À FAIRE] / [AJOUT MÉDIA PACK] et Team PP désactivées par défaut et activée si Titre !== "".
 $("#mpafaire, #tableteampp, #ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);
@@ -175,7 +179,7 @@ $("#auteurfiche").change(function () {
   }
   });
 
-// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 176 et décommenter la ligne 183.
+// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 186 et décommenter la ligne 194.
 $("#editeurfiche").change(function () {
   if ($(this).val() !== "" && $(this).val() !== null) {
     $("#raisonficherequis").css("display", "inline");

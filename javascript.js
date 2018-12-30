@@ -2120,10 +2120,11 @@ $("#loadfiche").change(function () {
         resetVarBlur($("#raisonfiche"));
       }
 
-      var fichedatejour2 = $("#fichedatejour", pagehtml).text();
-      if (fichedatejour2 !== "") {
+      fichedatejour = $("#fichedatejour", pagehtml).text();
+      alert(fichedatejour);
+      if (fichedatejour !== "") {
         if ($("#majcodehtml").is(":checked")) {
-          dd = fichedatejour2;
+          dd = fichedatejour;
         } else {
           dt = new Date();
           dd = ("0" + dt.getDate()).slice(-2);
@@ -2133,10 +2134,10 @@ $("#loadfiche").change(function () {
         dd = ("0" + dt.getDate()).slice(-2);
       }
 
-      var fichedatemois2 = $("#fichedatemois", pagehtml).text();
-      if (fichedatemois2 !== "") {
+      fichedatemois = $("#fichedatemois", pagehtml).text();
+      if (fichedatemois !== "") {
         if ($("#majcodehtml").is(":checked")) {
-          mm = fichedatemois2;
+          mm = fichedatemois;
         } else {
           dt = new Date();
           mm = ("0" + (dt.getMonth() + 1)).slice(-2);
@@ -2146,10 +2147,10 @@ $("#loadfiche").change(function () {
         mm = ("0" + (dt.getMonth() + 1)).slice(-2);
       }
 
-      var fichedatean2 = $("#fichedatean", pagehtml).text();
-      if (fichedatean2 !== "") {
+      fichedatean = $("#fichedatean", pagehtml).text();
+      if (fichedatean !== "") {
         if ($("#majcodehtml").is(":checked")) {
-          yy = fichedatean2;
+          yy = fichedatean;
         } else {
           dt = new Date();
           yy = (dt.getFullYear() + "").slice(-2);

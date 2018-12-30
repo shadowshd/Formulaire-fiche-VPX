@@ -185,8 +185,8 @@ $("#editeurfiche").change(function () {
     pseudofiche2 = "";
     pseudofiche2 = "<p style='display:inline;color:#666666;font-size:75%;'> Dernière édition par </p>" +
     "<p style='display:inline;color:#999999;font-size:75%;'>" + $(this).val() + "</p>" +
-    "<p style='display:inline;color:#666666;font-size:75%;'> le " + 
-    "<p style='display:inline;color:#999999;font-size:75%'>" + dd + "/" + mm + "/" + yy;
+    "<p style='display:inline;color:#666666;font-size:75%;'> le " + "</p>" +
+    "<p style='display:inline;color:#999999;font-size:75%'>" + dd + "/" + mm + "/" + yy + "</p>";
     //pseudofiche3 = "";
     setinfosfiche();
   }

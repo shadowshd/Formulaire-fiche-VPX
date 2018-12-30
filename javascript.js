@@ -1755,6 +1755,10 @@ function resetChamps() {
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
   importtoastr = true;
+  dt = new Date();
+  dd = ("0" + dt.getDate()).slice(-2);
+  mm = ("0" + (dt.getMonth() + 1)).slice(-2);
+  yy = (dt.getFullYear() + "").slice(-2);
   pseudofiche0 = "";
   pseudofiche1 = "";
   pseudofiche2 = "";
@@ -2121,9 +2125,11 @@ $("#loadfiche").change(function () {
         if ($("#majcodehtml").is(":checked")) {
           dd = fichedatejour2;
         } else {
+          dt = new Date();
           dd = ("0" + dt.getDate()).slice(-2);
         }
       } else {
+        dt = new Date();
         dd = ("0" + dt.getDate()).slice(-2);
       }
 
@@ -2132,9 +2138,11 @@ $("#loadfiche").change(function () {
         if ($("#majcodehtml").is(":checked")) {
           mm = fichedatemois2;
         } else {
+          dt = new Date();
           mm = ("0" + (dt.getMonth() + 1)).slice(-2);
         }
       } else {
+        dt = new Date();
         mm = ("0" + (dt.getMonth() + 1)).slice(-2);
       }
 
@@ -2143,9 +2151,11 @@ $("#loadfiche").change(function () {
         if ($("#majcodehtml").is(":checked")) {
           yy = fichedatean2;
         } else {
+          dt = new Date();
           yy = (dt.getFullYear() + "").slice(-2);
         }
       } else {
+        dt = new Date();
         yy = (dt.getFullYear() + "").slice(-2);
       }
       if ($("#majcodehtml").is(":checked")) {

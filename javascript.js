@@ -110,6 +110,12 @@ $("input[type=text]:not(#titre), input[type=number], input[type=url]").on("click
   }
 });
 
+// Récupération de la date actuelle.
+var dt = new Date();
+var dd = ("0" + dt.getDate()).slice(-2);
+var mm = ("0" + (dt.getMonth() + 1)).slice(-2);
+var yy = (dt.getFullYear() + "").slice(-2);
+
 // Case à cocher [MÉDIA PACK À FAIRE] / [AJOUT MÉDIA PACK] et Team PP désactivées par défaut et activée si Titre !== "".
 $("#mpafaire, #tableteampp, #ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);
 $("#mpafairetitre, #tableteampptitre, #ajoutmptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
@@ -169,7 +175,7 @@ $("#auteurfiche").change(function () {
   }
   });
 
-// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 173 et décommenter la ligne 180.
+// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 176 et décommenter la ligne 183.
 $("#editeurfiche").change(function () {
   if ($(this).val() !== "" && $(this).val() !== null) {
     $("#raisonficherequis").css("display", "inline");
@@ -179,7 +185,8 @@ $("#editeurfiche").change(function () {
     pseudofiche2 = "";
     pseudofiche2 = "<p style='display:inline;color:#666666;font-size:75%;'> Dernière édition par </p>" +
     "<p style='display:inline;color:#999999;font-size:75%;'>" + $(this).val() + "</p>" +
-    "<p style='display:inline;color:#666666;font-size:75%;'> le " + dd + "/" + mm + "/" + yy;
+    "<p style='display:inline;color:#666666;font-size:75%;'> le " + 
+    "<p style='display:inline;color:#999999;font-size:75%'>" + dd + "/" + mm + "/" + yy;
     //pseudofiche3 = "";
     setinfosfiche();
   }
@@ -206,12 +213,6 @@ function setinfosfiche () {
     toastr.info(pseudofiche0, "Infos auteur/éditeur fiche :").css({"background-color":"#292929","box-shadow":"0 0 12px #555555"});
   }
 }
-
-// Récupération de la date actuelle.
-var dt = new Date();
-var dd = ("0" + dt.getDate()).slice(-2);
-var mm = ("0" + (dt.getMonth() + 1)).slice(-2);
-var yy = (dt.getFullYear() + "").slice(-2);
 
 // Date du jour renseignée pour la date de disponibilité de la table au clic sur le bouton Aujourd'hui.
 $("#aujourd").on("click", function () {
@@ -2143,6 +2144,9 @@ $("#loadfiche").change(function () {
       } else {
         yy = (dt.getFullYear() + "").slice(-2);
       }
+      if ($("#majcodehtml").is(":checked")) {
+        setinfosfiche();
+      }
     }
   importtoastr = false;
   });
@@ -2387,8 +2391,10 @@ function creeCodeHTML () {
     infosfiche += "<p style='display:inline;color:#666666;font-size:75%;'>. Dernière édition par </p>" +
     "<p id='ficheediteur' style='display:inline;color:#999999;font-size:75%;'>" + $("#editeurfiche").val() + "</p>" +
     "<p style='display:inline;color:#666666;font-size:75%;'> le </p>" +
-    "<p id='fichedatejour' style='display:inline;color:#999999;font-size:75%;'>" + dd + "/</p>" +
-    "<p id ='fichedatemois' style='display:inline;color:#999999;font-size:75%;'>" + mm + "/</p>" +
+    "<p id='fichedatejour' style='display:inline;color:#999999;font-size:75%;'>" + dd + "</p>" +
+    "<p style='display:inline;color:#999999;font-size:75%;'>/" +
+    "<p id ='fichedatemois' style='display:inline;color:#999999;font-size:75%;'>" + mm + "</p>" +
+    "<p style='display:inline;color:#999999;font-size:75%;'>/" +
     "<p id='fichedatean' style='display:inline;color:#999999;font-size:75%'>" + yy + "</p>";
   }
 

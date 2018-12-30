@@ -2392,9 +2392,9 @@ function creeCodeHTML () {
     "<p id='ficheediteur' style='display:inline;color:#999999;font-size:75%;'>" + $("#editeurfiche").val() + "</p>" +
     "<p style='display:inline;color:#666666;font-size:75%;'> le </p>" +
     "<p id='fichedatejour' style='display:inline;color:#999999;font-size:75%;'>" + dd + "</p>" +
-    "<p style='display:inline;color:#999999;font-size:75%;'>/" +
+    "<p style='display:inline;color:#999999;font-size:75%;'>/" + "</p>" +
     "<p id ='fichedatemois' style='display:inline;color:#999999;font-size:75%;'>" + mm + "</p>" +
-    "<p style='display:inline;color:#999999;font-size:75%;'>/" +
+    "<p style='display:inline;color:#999999;font-size:75%;'>/" + "</p>" +
     "<p id='fichedatean' style='display:inline;color:#999999;font-size:75%'>" + yy + "</p>";
   }
 

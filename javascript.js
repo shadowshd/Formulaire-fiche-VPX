@@ -1751,6 +1751,8 @@ function resetChamps() {
   disableediteurraison();
   $("#mpafaire, #ajoutmp, #tableteampp").prop("disabled", true).fadeTo("fast", 0.33);
   $("#mpafairetitre, #ajoutmptitre, #tableteampptitre").prop("title", "<i>Option désactivée car le champ </i>Titre<i> est vide.</i>");
+  $("#majcodehtml").prop("disabled", false).fadeTo("fast", 1);
+  $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
   importtoastr = true;
   dt = new Date();
   dd = ("0" + dt.getDate()).slice(-2);
@@ -1851,6 +1853,8 @@ $("#loadfiche").change(function () {
         sujet = sujet.replace(matches[i], matches[i].toString().toUpperCase());
         }
         $("#titre").val(sujet).change();
+        $("#majcodehtml").prop("disabled", true).fadeTo("fast", 0.33);
+        $("#majcodehtmlfiche").prop("title", "<i>Option désactivée car importation d'une fiche en cours.</i>");
         if (sujet.indexOf("[MÉDIA PACK À FAIRE]") !== -1) {
           $("#mpafaire").prop("checked", true);
           $("#ajoutmp").prop("disabled", true).fadeTo("fast", 0.33);

@@ -22,9 +22,6 @@ var dd = "";
 var mm = "";
 var yy = "";
 var fabricant;
-var fichedatejour;
-var fichedatemois;
-var fichedatean;
 var tablebutton;
 var backglassbutton;
 var codehtmlfiche;
@@ -179,7 +176,7 @@ $("#auteurfiche").change(function () {
   }
   });
 
-// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 186 et décommenter la ligne 194.
+// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 183 et décommenter la ligne 191.
 $("#editeurfiche").change(function () {
   if ($(this).val() !== "" && $(this).val() !== null) {
     $("#raisonficherequis").css("display", "inline");
@@ -2120,8 +2117,7 @@ $("#loadfiche").change(function () {
         resetVarBlur($("#raisonfiche"));
       }
 
-      fichedatejour = $("#fichedatejour", pagehtml).text();
-      alert(fichedatejour);
+      var fichedatejour = $("#fichedatejour", pagehtml).text();
       if (fichedatejour !== "") {
         if ($("#majcodehtml").is(":checked")) {
           dd = fichedatejour;
@@ -2134,7 +2130,7 @@ $("#loadfiche").change(function () {
         dd = ("0" + dt.getDate()).slice(-2);
       }
 
-      fichedatemois = $("#fichedatemois", pagehtml).text();
+      var fichedatemois = $("#fichedatemois", pagehtml).text();
       if (fichedatemois !== "") {
         if ($("#majcodehtml").is(":checked")) {
           mm = fichedatemois;
@@ -2147,7 +2143,7 @@ $("#loadfiche").change(function () {
         mm = ("0" + (dt.getMonth() + 1)).slice(-2);
       }
 
-      fichedatean = $("#fichedatean", pagehtml).text();
+      var fichedatean = $("#fichedatean", pagehtml).text();
       if (fichedatean !== "") {
         if ($("#majcodehtml").is(":checked")) {
           yy = fichedatean;

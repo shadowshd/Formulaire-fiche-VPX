@@ -1780,11 +1780,18 @@ function resetChamps() {
   if ($("#loadfiche").val !== "") {
     var loadfichetemp = $("#loadfiche").val();
   }
+  if ($("#majcodehtml").is(":checked")) {
+    var majcodehtmlchecked = true;
+  } else {
+    var majcodehtmlchecked = false;
+  }
   document.getElementById("postform").reset();
   if (loadfichetemp !== "") {
     $("#loadfiche").val(loadfichetemp);
   }
-    
+  if (majcodehtmlchecked == true) {
+    $("#majcodehtml").prop("checked", true);
+  }
 }
 
 $("#loadfiche").change(function () {

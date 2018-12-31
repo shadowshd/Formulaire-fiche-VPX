@@ -88,7 +88,7 @@ $(document).tooltip({
 });
 
 $("#subftitre").tooltip({
-  position: { my: "center", at: "right center" }
+  position: { my: "top+20", at: "center" }
 });
 
 /*$("#auteurfiche").selectmenu();
@@ -180,7 +180,7 @@ $("#auteurfiche").change(function () {
   }
   });
 
-// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 183 et décommenter la ligne 191.
+// Pour réinitialiser la raison de l'édition, ajouter .val("") ligne 187 et décommenter la ligne 195.
 $("#editeurfiche").change(function () {
   if ($(this).val() !== "" && $(this).val() !== null) {
     $("#raisonficherequis").css("display", "inline");

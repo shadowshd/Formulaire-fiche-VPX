@@ -1768,12 +1768,12 @@ function resetVarBlur(identifier) {
 }
 
 function enableMAJcodeHTML() {
-  $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1);
+  $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1).change();
   $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
 }
 
 function disableMAJcodeHTML() {
-  $("#majcodehtml").prop("disabled", true).fadeTo("fast", 0.33);
+  $("#majcodehtml").prop("disabled", true).fadeTo("fast", 0.33).change();
   $("#majcodehtmlfiche").prop("title", "<i>Option désactivée car importation d'une fiche en cours.</i>");
 }
 

@@ -1742,6 +1742,19 @@ $("#modifications").change(function () {
   }
 });
 
+// (Dés)activation des boutons Aperçu / Publier / radios si option MAJ code HTML (dés)activée.
+$("#majcodehtml").change(function () {
+  if ($("#majcodehtml").is(":checked")) {
+    $("#apercu, #saveform").prop({"disabled": true, "title": "<i>Option désactivée car mise à jour du code HTML activée.</i>"}).fadeTo("fast", 0.33);
+    $("#subf1, #subf2, #subf3, #subf4").prop("disabled", true).fadeTo("fast", 0.33);
+  } else {
+    $("#apercu, #saveform").prop("disabled", true).fadeTo("fast", 1);
+    $("#subf1, #subf2, #subf3, #subf4").prop("disabled", false).fadeTo("fast", 1);
+    $("#apercu").prop("title", "Ce bouton génére une prévisualisation du sujet créé par le formulaire.");
+    $("#saveform").prop("title", "Ce bouton génére le sujet créé par le formulaire.");
+  }
+});
+
 // Mise à jour d'une fiche à partir de l'URL d'une fiche existante.
 function resetVarBlur(identifier) {
   $(identifier).val("").prop("disabled", false).fadeTo("fast", 1).change();

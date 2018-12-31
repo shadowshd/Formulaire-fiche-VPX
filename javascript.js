@@ -1822,6 +1822,7 @@ $("#loadfiche").change(function () {
     }
   } else if (trimurl !== "" && trimurl.match(/http/g).length > 1) {
     $("#loadfiche").val("");
+    enableMAJcodeHTML();
     var toastrmsg = "L'URL saisie contient " + trimurl.match(/http/g).length + " fois <i>http(s)</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL fiche existante :");
@@ -1832,6 +1833,7 @@ $("#loadfiche").change(function () {
     return;
   } else if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
     $("#loadfiche").val("");
+    enableMAJcodeHTML();
     toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");
     return;
   }
@@ -1842,9 +1844,11 @@ $("#loadfiche").change(function () {
     var fichetablevpx = $("#fichetablevpx", pagehtml).length;
     if (fichetablevpx !== 1 && loadfiche !== "") {
       $("#loadfiche").val("").change();
+      enableMAJcodeHTML();
       toastr.error("L'URL est invalide ou n'est pas une fiche de table VPX !", "URL fiche existante :");
     } else if (loadfiche === "") {
       resetChamps();
+      enableMAJcodeHTML();
     } else {
       toastr.info("Importation des données de la fiche...", "Information :", {timeOut: 2000});
       resetChamps();

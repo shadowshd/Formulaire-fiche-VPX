@@ -1769,7 +1769,7 @@ function resetVarBlur(identifier) {
 
 function enableMAJcodeHTML() {
   $("#loadfiche").prop("disabled", false).fadeTo("fast", 1);
-  $("#loadfichetitre").prop("title": "Saisir ici l'URL Pincab Passion de la fiche existante.<br /><i>Doit commencer par 'http://www.pincabpassion.net/'.<br />Laisser vide si création d'une nouvelle fiche de table.</i>").fadeTo("fast", 1);
+  $("#loadfichetitre").prop("title", "Saisir ici l'URL Pincab Passion de la fiche existante.<br /><i>Doit commencer par 'http://www.pincabpassion.net/'.<br />Laisser vide si création d'une nouvelle fiche de table.</i>").fadeTo("fast", 1);
   $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1).change();
   $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
 }

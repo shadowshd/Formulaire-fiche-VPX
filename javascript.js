@@ -87,6 +87,10 @@ $(document).tooltip({
   }
 });
 
+$("#subftitre").tooltip({
+  position: { my: "left+15 center", at: "right center" }
+});
+
 /*$("#auteurfiche").selectmenu();
 $("#editeurfiche").selectmenu();
 $("#raisonfiche").selectmenu();
@@ -1745,13 +1749,16 @@ $("#modifications").change(function () {
 // (Dés)activation des boutons Aperçu / Publier / radios si option MAJ code HTML (dés)activée.
 $("#majcodehtml").change(function () {
   if ($("#majcodehtml").is(":checked")) {
-    $("#apercu, #saveform").prop({"disabled": true, "title": "<i>Option désactivée car mise à jour du code HTML activée.</i>"}).fadeTo("fast", 0.33);
+    $("#apercu, #saveform").prop("disabled", true).fadeTo("fast", 0.33);
+    $("#apercutitre, #saveformtitre").prop("title", "<i>Option désactivée car option </i>MAJ code HTML<i> activée.</i>");
     $("#subf1, #subf2, #subf3, #subf4").prop("disabled", true).fadeTo("fast", 0.33);
+    $("#subftitre").prop("title", "<i>Options désactivées car option </i>MAJ code HTML<i> activée.</i>");
   } else {
-    $("#apercu, #saveform").prop("disabled", true).fadeTo("fast", 1);
+    $("#apercu, #saveform").prop("disabled", false).fadeTo("fast", 1);
     $("#subf1, #subf2, #subf3, #subf4").prop("disabled", false).fadeTo("fast", 1);
-    $("#apercu").prop("title", "Ce bouton génére une prévisualisation du sujet créé par le formulaire.");
-    $("#saveform").prop("title", "Ce bouton génére le sujet créé par le formulaire.");
+    $("#subftitre").prop("title", "Ces boutons permettent de sélectionner la section de publication du sujet.");
+    $("#apercutitre").prop("title", "Ce bouton génére une prévisualisation du sujet.");
+    $("#saveformtitre").prop("title", "Ce bouton publie le sujet dans la section sélectionnée.");
   }
 });
 

@@ -87,9 +87,9 @@ $(document).tooltip({
   }
 });
 
-$("#subftitre").tooltip({
+/*$("#subftitre").tooltip({
   position: { my: "top+20", at: "center" }
-});
+});*/
 
 /*$("#auteurfiche").selectmenu();
 $("#editeurfiche").selectmenu();

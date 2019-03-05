@@ -1124,15 +1124,15 @@ $("#urltable").change(function () {
       toastr.error(toastrmsg, "URL table :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.indexOf("http://www.vpforums.org/") === 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("http://www.vpforums.org") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
     $("#urltable").val(trimurl).change();
     toastr.warning("URL VPForums HTTP modifiée en HTTPS.", "Information lien table :");
-  } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("http://vpinball.com") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
     $("#urltable").val(trimurl).change();
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien table :");
-  } else if (trimurl.indexOf("https://mega.nz/") === 0) {
+  } else if (trimurl.indexOf("https://mega.nz") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1161,7 +1161,7 @@ $("#urltable").change(function () {
       toastr.info("Pincab Passion.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
+  } else if (trimurl.indexOf("https://www.vpforums.org") === 0) {
     if (trimurl === "https://www.vpforums.org/" || trimurl === "https://www.vpforums.org") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1201,7 +1201,7 @@ $("#urltable").change(function () {
       toastr.info("VPForums.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
+  } else if (trimurl.indexOf("http://vpuniverse.com") === 0) {
     if (trimurl === "http://vpuniverse.com/" || trimurl === "http://vpuniverse.com") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1241,7 +1241,7 @@ $("#urltable").change(function () {
       toastr.info("VPUniverse.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
+  } else if (trimurl.indexOf("https://vpinball.com") === 0) {
     if (trimurl === "https://vpinball.com/" || trimurl === "https://vpinball.com") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1281,7 +1281,7 @@ $("#urltable").change(function () {
       toastr.info("VPinball.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("https://vpdb.io/") === 0) {
+  } else if (trimurl.indexOf("https://vpdb.io") === 0) {
     if (trimurl === "https://vpdb.io/" || trimurl === "https://vpdb.io") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1357,15 +1357,15 @@ $("#urldb2s").change(function () {
       toastr.error(toastrmsg, "URL dB2S :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.indexOf("http://www.vpforums.org/") === 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("http://www.vpforums.org") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
     $("#urldb2s").val(trimurl).change();
     toastr.warning("URL VPForums HTTP modifiée en HTTPS.", "Information lien dB2S :");
-  } else if (trimurl.indexOf("http://vpinball.com/") === 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("http://vpinball.com") === 0 && trimurl !== "") {
     trimurl = trimurl.replace("http://", "https://");
     $("#urldb2s").val(trimurl).change();
     toastr.warning("URL VPinball HTTP modifiée en HTTPS.", "Information lien dB2S :");
-  } else if (trimurl.indexOf("https://mega.nz/") === 0) {
+  } else if (trimurl.indexOf("https://mega.nz") === 0) {
     if (trimurl === "https://mega.nz/" || trimurl === "https://mega.nz") {
       $("#urldb2s").val("");
       backglassbutton = "";
@@ -1385,7 +1385,7 @@ $("#urldb2s").change(function () {
       toastr.info("Pincab Passion.", "URL dB2S :");
     }
     return;
-  } else if (trimurl.indexOf("https://www.vpforums.org/") === 0) {
+  } else if (trimurl.indexOf("https://www.vpforums.org") === 0) {
     if (trimurl === "https://www.vpforums.org/" || trimurl === "https://vpforums.org") {
       $("#urldb2s").val("");
       backglassbutton = "";
@@ -1416,7 +1416,7 @@ $("#urldb2s").change(function () {
       toastr.info("VPForums.", "URL dB2S :");
     }
     return;
-  } else if (trimurl.indexOf("http://vpuniverse.com/") === 0) {
+  } else if (trimurl.indexOf("http://vpuniverse.com") === 0) {
     if (trimurl === "http://vpuniverse.com/" || trimurl === "http://vpuniverse.com") {
       $("#urldb2s").val("");
       backglassbutton = "";
@@ -1447,7 +1447,7 @@ $("#urldb2s").change(function () {
       toastr.info("VPUniverse.", "URL dB2S :");
     }
     return;
-  } else if (trimurl.indexOf("https://vpinball.com/") === 0) {
+  } else if (trimurl.indexOf("https://vpinball.com") === 0) {
     if (trimurl === "https://vpinball.com/" || trimurl === "https://vpinball.com") {
       $("#urldb2s").val("");
       backglassbutton = "";
@@ -1478,7 +1478,7 @@ $("#urldb2s").change(function () {
       toastr.info("VPinball.", "URL dB2S :");
     }
     return;
-   } else if (trimurl.indexOf("https://vpdb.io/") === 0) {
+   } else if (trimurl.indexOf("https://vpdb.io") === 0) {
     if (trimurl === "https://vpdb.io/" || trimurl === "https://vpdb.io") {
       $("#urldb2S").val("");
       backglassbutton = "";

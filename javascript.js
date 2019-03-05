@@ -1844,7 +1844,7 @@ $("#loadfiche").change(function () {
     if (fichetablevpx !== 1 && loadfiche !== "") {
       $("#loadfiche").val("").change();
       enableMAJcodeHTML();
-      toastr.error("L'URL est invalide ou n'est pas une fiche de table VPX !", "URL fiche existante :");
+      toastr.error("L'URL est invalide, n'est pas une fiche de table VPX ou son code HTML contient des erreurs !", "URL fiche existante :");
     } else if (loadfiche === "") {
       resetChamps();
       enableMAJcodeHTML();

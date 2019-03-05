@@ -1055,7 +1055,7 @@ $("#urlsujet").change(function () {
       toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl === "http://www.pincabpassion.net/" || trimurl === "http://www.pincabpassion.net") {
+  } else if (trimurl === "https://www.pincabpassion.net/" || trimurl === "https://www.pincabpassion.net") {
     $("#urlsujet").val("");
     var toastrmsg = "L'URL ne peut pas être la page d'accueil du forum !";
     if (importtoastr === false) {
@@ -1064,10 +1064,10 @@ $("#urlsujet").change(function () {
       toastr.error(toastrmsg, "URL sujet [SUPPORT] :", {timeout: 10000});
     }
     return;
-  } else if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("https://www.pincabpassion.net/") !== 0 && trimurl !== "") {
     $("#urlsujet").val("");
     $("#urlsujetpreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-    var toastrmsg = "L'URL est incorrecte ou ne redirige pas vers <i>http://www.pincabpassion.net/</i> !";
+    var toastrmsg = "L'URL est incorrecte ou ne redirige pas vers <i>https://www.pincabpassion.net/</i> !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL sujet [SUPPORT] :");
       $("#urlsujet").focus();
@@ -1745,7 +1745,7 @@ function resetVarBlur(identifier) {
 
 function enableMAJcodeHTML() {
   $("#loadfiche").prop("disabled", false).fadeTo("fast", 1);
-  $("#loadfichetitre").prop("title", "Saisir ici l'URL Pincab Passion de la fiche existante.<br /><i>Doit commencer par 'http://www.pincabpassion.net/'.<br />Laisser vide si création d'une nouvelle fiche de table.</i>").fadeTo("fast", 1);
+  $("#loadfichetitre").prop("title", "Saisir ici l'URL Pincab Passion de la fiche existante.<br /><i>Doit commencer par 'https://www.pincabpassion.net/'.<br />Laisser vide si création d'une nouvelle fiche de table.</i>").fadeTo("fast", 1);
   $("#majcodehtml").prop({"disabled": false, "checked": false}).fadeTo("fast", 1).change();
   $("#majcodehtmlfiche").prop("title", "Cocher cette case pour ne pas mettre à jour le dernier éditeur et la date d'édition.<br />À utiliser pour mettre à jour le code HTML des fiches.");
 }
@@ -1811,7 +1811,7 @@ function resetChamps() {
 
 $("#loadfiche").change(function () {
   var trimurl = $(this).val().trim().split("#")[0];
-  if (trimurl === "http://www.pincabpassion.net/" || trimurl === "http://www.pincabpassion.net") {
+  if (trimurl === "https://www.pincabpassion.net/" || trimurl === "https://www.pincabpassion.net") {
     $("#loadfiche").val("");
     var toastrmsg = "L'URL saisie ne peut pas être la page d'accueil du forum :-)";
     if (importtoastr === false) {
@@ -1830,7 +1830,7 @@ $("#loadfiche").change(function () {
       toastr.error(toastrmsg, "URL fiche existante :", {timeOut: 10000});
     }
     return;
-  } else if (trimurl.indexOf("http://www.pincabpassion.net/") !== 0 && trimurl !== "") {
+  } else if (trimurl.indexOf("https://www.pincabpassion.net/") !== 0 && trimurl !== "") {
     $("#loadfiche").val("");
     enableMAJcodeHTML();
     toastr.error("L'URL ne pointe pas vers www.pincabpassion.net !", "URL fiche existante :");

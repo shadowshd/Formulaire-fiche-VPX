@@ -1297,7 +1297,7 @@ $("#urltable").change(function () {
     $("#urltable").val(trimurl.split("#")[0]);
     //disabledb2stable(); fonctions de désactivation automatique des champs dB2S désactivées suite certains dB2S non disponibles chez MBP.
     //disabledb2s();
-    tablebutton = "https://i.servimg.com/u/f58/19/65/43/35/mbp11.png"
+    tablebutton = "https://i30.servimg.com/u/f30/19/65/43/35/tabvpd10.png"
     $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
     var urltableok = true;
     if (importtoastr === false) {
@@ -1494,7 +1494,7 @@ $("#urldb2s").change(function () {
       return;
     }
     $("#urldb2s").val(trimurl.split("#")[0]);
-    backglassbutton = "https://i30.servimg.com/u/f30/19/65/43/35/b2smbp10.png";
+    backglassbutton = "https://i30.servimg.com/u/f30/19/65/43/35/b2svpd10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
     if (importtoastr === false) {
       toastr.info("VPDB.io.", "URL dB2S :");

@@ -1281,7 +1281,7 @@ $("#urltable").change(function () {
       toastr.info("VPinball.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("https://vpdb.io/games/") === 0) {
+  } else if (trimurl.indexOf("https://vpdb.io/") === 0) {
     if (trimurl === "https://vpdb.io/" || trimurl === "https://vpdb.io") {
       $("#urltable").val("");
       tablebutton = "";
@@ -1295,8 +1295,6 @@ $("#urltable").change(function () {
       return;
     }
     $("#urltable").val(trimurl.split("#")[0]);
-    //disabledb2stable(); fonctions de désactivation automatique des champs dB2S désactivées suite certains dB2S non disponibles chez MBP.
-    //disabledb2s();
     tablebutton = "https://i30.servimg.com/u/f30/19/65/43/35/tabvpd10.png"
     $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
     var urltableok = true;
@@ -1480,8 +1478,8 @@ $("#urldb2s").change(function () {
       toastr.info("VPinball.", "URL dB2S :");
     }
     return;
-   } else if (trimurl.indexOf("https://vpdb.io/games/") === 0) {
-    if (trimurl === "https://vpdb.io/games/" || trimurl === "https://vpdb.io/games") {
+   } else if (trimurl.indexOf("https://vpdb.io/") === 0) {
+    if (trimurl === "https://vpdb.io/" || trimurl === "https://vpdb.io") {
       $("#urldb2S").val("");
       backglassbutton = "";
       $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");

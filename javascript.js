@@ -1281,23 +1281,12 @@ $("#urltable").change(function () {
       toastr.info("VPinball.", "URL table :");
     }
     return;
-  } else if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
-    if (trimurl === "http://www.monsterbashpincab.com/" || trimurl === "http://www.monsterbashpincab.com") {
+  } else if (trimurl.indexOf("https://vpdb.io/games/") === 0) {
+    if (trimurl === "https://vpdb.io/" || trimurl === "https://vpdb.io") {
       $("#urltable").val("");
       tablebutton = "";
       $("#urltablepreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-      var toastrmsg = "L'URL ne peut pas être la page d'accueil MonsterBashPincab !";
-      if (importtoastr === false) {
-        toastr.error(toastrmsg, "URL table :");
-      } else {
-        toastr.error(toastrmsg, "URL table :", {timeout: 10000});
-      }
-      return;
-    } else if (trimurl.indexOf("http://www.monsterbashpincab.com/?s") === 0) {
-      $("#urltable").val("");
-      tablebutton = "";
-      $("#urltablepreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-      var toastrmsg = "L'URL ne peut pas être la page de recherche Monsterbashpincab !";
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPDB.io !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL table :");
       } else {
@@ -1312,7 +1301,7 @@ $("#urltable").change(function () {
     $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
     var urltableok = true;
     if (importtoastr === false) {
-      toastr.info("MonsterBashPincab.", "URL table :");
+      toastr.info("VPDB.io.", "URL table :");
     }
     return;
   } else if (trimurl === "") {
@@ -1326,7 +1315,7 @@ $("#urltable").change(function () {
     $("#urltable").val("");
     tablebutton = "";
     $("#urltablepreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-    var toastrmsg = "L'URL est invalide ou ne redirige pas vers Mega (Pincab Passion), MBP, VPF, VPU ou VPB !<br />Pour MonsterBash Pincab, l'URL doit contenir <i>http://www.monsterbashpincab.com/forums/topic/</i><br />(redirection vers la page de téléchargement non autorisée).";
+    var toastrmsg = "L'URL est invalide ou ne redirige pas vers Mega (Pincab Passion), VPF, VPU, VPB ou VPDB.io !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL table :");
       $("#urltable").focus();
@@ -1491,23 +1480,12 @@ $("#urldb2s").change(function () {
       toastr.info("VPinball.", "URL dB2S :");
     }
     return;
-   } else if (trimurl.indexOf("http://www.monsterbashpincab.com/forums/topic") === 0) {
-    if (trimurl === "http://www.monsterbashpincab.com/" || trimurl === "http://www.monsterbashpincab.com") {
+   } else if (trimurl.indexOf("https://vpdb.io/games/") === 0) {
+    if (trimurl === "https://vpdb.io/games/" || trimurl === "https://vpdb.io/games") {
       $("#urldb2S").val("");
       backglassbutton = "";
       $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-      var toastrmsg = "L'URL ne peut pas être la page d'accueil MonsterBashPincab !";
-      if (importtoastr === false) {
-        toastr.error(toastrmsg, "URL dB2S :");
-      } else {
-        toastr.error(toastrmsg, "URL dB2S :", {timeout: 10000});
-      }
-      return;
-    } else if (trimurl.indexOf("http://www.monsterbashpincab.com/?s") === 0) {
-      $("#urldb2s").val("");
-      backglassbutton = "";
-      $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f62/19/65/43/35/transp10.png").unwrap("a");
-      var toastrmsg = "L'URL ne peut pas être la page de recherche Monsterbashpincab !";
+      var toastrmsg = "L'URL ne peut pas être la page d'accueil VPDB.io !";
       if (importtoastr === false) {
         toastr.error(toastrmsg, "URL dB2S :");
       } else {
@@ -1519,7 +1497,7 @@ $("#urldb2s").change(function () {
     backglassbutton = "https://i30.servimg.com/u/f30/19/65/43/35/b2smbp10.png";
     $("#urldb2spreview").prop("src", backglassbutton).wrap("<a href='" + $("#urldb2s").val() + "' target='_blank'>");
     if (importtoastr === false) {
-      toastr.info("Monsterbashpincab.", "URL dB2S :");
+      toastr.info("VPDB.io.", "URL dB2S :");
     }
   } else if (trimurl === "") {
     $("#urldb2s").val("");
@@ -1530,7 +1508,7 @@ $("#urldb2s").change(function () {
     $("#urldb2s").val("");
     backglassbutton = "";
     $("#urldb2spreview").prop("src", "https://i.servimg.com/u/f58/19/65/43/35/mpsoon10.png").unwrap("a");
-    var toastrmsg = "L'URL est invalide ou ne redirige pas vers Mega (Pincab Passion), VPF, VPU ou VPB !";
+    var toastrmsg = "L'URL est invalide ou ne redirige pas vers Mega (Pincab Passion), VPF, VPU, VPB ou VPDB.io !";
     if (importtoastr === false) {
       toastr.error(toastrmsg, "URL dB2S :");
       $("#urldb2s").focus();

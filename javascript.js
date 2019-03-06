@@ -1295,8 +1295,16 @@ $("#urltable").change(function () {
       return;
     }
     $("#urltable").val(trimurl.split("#")[0]);
-    tablebutton = "https://i30.servimg.com/u/f30/19/65/43/35/tabvpd10.png"
-    $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
+    if (!$("#db2stable").is(":checked")) {
+      enabledb2stable();
+      enabledb2s();
+      tablebutton = "https://i30.servimg.com/u/f30/19/65/43/35/tabvpd10.png";
+      $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
+    } else if ($("#db2stable").is(":checked")) {
+      disabledb2s();
+      tablebutton = "https://i30.servimg.com/u/f30/19/65/43/35/tb2vpd10.png";
+      $("#urltablepreview").prop("src", tablebutton).wrap("<a href='" + $("#urltable").val() + "' target='_blank'>");
+    }
     var urltableok = true;
     if (importtoastr === false) {
       toastr.info("VPDB.io.", "URL table :");

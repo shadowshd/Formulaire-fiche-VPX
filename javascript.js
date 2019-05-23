@@ -2218,7 +2218,7 @@ $("#saveform").on("click", function () {
         return false;
       }
     } else if ((versionnew !== versionold) && (datejournew + datemoisnew + dateannew) === (datejourold + datemoisold + dateanold)) {
-      var confirmer = confirm("La version de la table a changée mais la date de disponibilité n'a pas été modifiée.\n\nCliquez sur Annuler pour revenir à la fiche ou sur OK pour la publier quand même.");
+      var confirmer = confirm("La version de la table a changé mais la date de disponibilité n'a pas été modifiée.\n\nCliquez sur Annuler pour revenir à la fiche ou sur OK pour la publier quand même.");
       if (confirmer === false) {
         return false;
       }
